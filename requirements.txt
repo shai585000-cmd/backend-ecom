@@ -1,6 +1,5 @@
 # Fichier de dépendances pour le développement
 
--r base.txt  # Importer les dépendances communes
 
 gunicorn==23.0.0  # https://github.com/benoitc/gunicorn
 psycopg[c]==3.2.3  # https://github.com/psycopg/psycopg
