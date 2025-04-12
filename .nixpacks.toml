@@ -1,0 +1,2 @@
+[build]
+requirements = "requirements/production.txt"  # Chemin relatif vers votre fichier
