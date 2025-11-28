@@ -73,7 +73,11 @@ LOCAL_APPS = [
     "backend.produits",
     "backend.cart",
     "backend.home",
-    
+    "backend.orders",
+    "backend.payments",
+    "backend.reviews",
+    "backend.wishlist",
+    "backend.shipping",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

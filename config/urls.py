@@ -24,6 +24,7 @@ urlpatterns = [
     path("api/cart/", include("backend.cart.urls", namespace="cart")),
     path("api/produits/", include("backend.produits.urls", namespace="produits")),
     path("api/users/", include("backend.users.urls", namespace="users")),
+    path("api/orders/", include("backend.orders.urls", namespace="orders")),
 
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here

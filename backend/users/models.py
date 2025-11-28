@@ -24,21 +24,3 @@ class User(AbstractUser):
 
     def get_absolute_url(self) -> str:
         return reverse("users:detail", kwargs={"username": self.username})
-    
-
-
-
-class production(AbstractUser):
-    name_prod = models.CharField(blank=True, max_length=255)
-    
-    # Redéfinir les relations pour éviter les conflits de related_name
-    groups = models.ManyToManyField(
-        'auth.Group',
-        related_name='production_user_set',  # Nom inverse personnalisé
-        blank=True
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        related_name='production_user_permissions',  # Nom inverse personnalisé
-        blank=True
-    )

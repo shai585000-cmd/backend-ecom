@@ -1,11 +1,46 @@
 from django.contrib import admin
-from .models import Product
+from .models import Product, Brand
 
+
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ['name', 'logo', 'is_active']
+    search_fields = ['name']
+    list_filter = ['is_active']
+
+
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name','id','user','views','image','categorie','promotion','promotion_price','name', 'price', 'is_featured', 'created_at', 'updated_at')  # Affiche les champs principaux du modèle
-    search_fields = ('name', 'description')  # Permet de rechercher par nom et description
-    list_filter = ('is_featured', 'created_at')  # Permet de filtrer par produit en vedette et date de création
-    ordering = ('-created_at',)  # Trie les produits par date de création, du plus récent au plus ancien
-
-# Enregistrement du modèle Product dans l'admin
-admin.site.register(Product, ProductAdmin)
+    list_display = ['name', 'brand', 'price', 'condition', 'stock', 'is_featured', 'promotion', 'created_at']
+    list_filter = ['brand', 'condition', 'operating_system', 'network', 'is_featured', 'promotion', 'created_at']
+    search_fields = ['name', 'model_name', 'description']
+    ordering = ['-created_at']
+    readonly_fields = ['views', 'created_at', 'updated_at']
+    
+    fieldsets = (
+        ('Informations de base', {
+            'fields': ('name', 'model_name', 'brand', 'categorie', 'user', 'description')
+        }),
+        ('Images', {
+            'fields': ('image', 'image_2', 'image_3', 'image_4'),
+            'classes': ('collapse',)
+        }),
+        ('Prix & Stock', {
+            'fields': ('price', 'promotion', 'promotion_price', 'stock', 'is_featured')
+        }),
+        ('Caractéristiques téléphone', {
+            'fields': ('condition', 'color', 'dual_sim'),
+        }),
+        ('Spécifications techniques', {
+            'fields': ('ram', 'storage', 'screen_size', 'battery_capacity', 'operating_system', 'network'),
+            'classes': ('collapse',)
+        }),
+        ('Caméra', {
+            'fields': ('main_camera', 'front_camera'),
+            'classes': ('collapse',)
+        }),
+        ('Statistiques', {
+            'fields': ('views', 'created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
