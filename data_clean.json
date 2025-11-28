@@ -1,0 +1,2508 @@
+[
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add email address",
+      "content_type": [
+        "account",
+        "emailaddress"
+      ],
+      "codename": "add_emailaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change email address",
+      "content_type": [
+        "account",
+        "emailaddress"
+      ],
+      "codename": "change_emailaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete email address",
+      "content_type": [
+        "account",
+        "emailaddress"
+      ],
+      "codename": "delete_emailaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view email address",
+      "content_type": [
+        "account",
+        "emailaddress"
+      ],
+      "codename": "view_emailaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add email confirmation",
+      "content_type": [
+        "account",
+        "emailconfirmation"
+      ],
+      "codename": "add_emailconfirmation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change email confirmation",
+      "content_type": [
+        "account",
+        "emailconfirmation"
+      ],
+      "codename": "change_emailconfirmation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete email confirmation",
+      "content_type": [
+        "account",
+        "emailconfirmation"
+      ],
+      "codename": "delete_emailconfirmation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view email confirmation",
+      "content_type": [
+        "account",
+        "emailconfirmation"
+      ],
+      "codename": "view_emailconfirmation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": [
+        "admin",
+        "logentry"
+      ],
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view group",
+      "content_type": [
+        "auth",
+        "group"
+      ],
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view permission",
+      "content_type": [
+        "auth",
+        "permission"
+      ],
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add Token",
+      "content_type": [
+        "authtoken",
+        "token"
+      ],
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Token",
+      "content_type": [
+        "authtoken",
+        "token"
+      ],
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": [
+        "authtoken",
+        "token"
+      ],
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view Token",
+      "content_type": [
+        "authtoken",
+        "token"
+      ],
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add Token",
+      "content_type": [
+        "authtoken",
+        "tokenproxy"
+      ],
+      "codename": "add_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change Token",
+      "content_type": [
+        "authtoken",
+        "tokenproxy"
+      ],
+      "codename": "change_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": [
+        "authtoken",
+        "tokenproxy"
+      ],
+      "codename": "delete_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view Token",
+      "content_type": [
+        "authtoken",
+        "tokenproxy"
+      ],
+      "codename": "view_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add cart",
+      "content_type": [
+        "cart",
+        "cart"
+      ],
+      "codename": "add_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change cart",
+      "content_type": [
+        "cart",
+        "cart"
+      ],
+      "codename": "change_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete cart",
+      "content_type": [
+        "cart",
+        "cart"
+      ],
+      "codename": "delete_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view cart",
+      "content_type": [
+        "cart",
+        "cart"
+      ],
+      "codename": "view_cart"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add cart item",
+      "content_type": [
+        "cart",
+        "cartitem"
+      ],
+      "codename": "add_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change cart item",
+      "content_type": [
+        "cart",
+        "cartitem"
+      ],
+      "codename": "change_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete cart item",
+      "content_type": [
+        "cart",
+        "cartitem"
+      ],
+      "codename": "delete_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view cart item",
+      "content_type": [
+        "cart",
+        "cartitem"
+      ],
+      "codename": "view_cartitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view content type",
+      "content_type": [
+        "contenttypes",
+        "contenttype"
+      ],
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add banner",
+      "content_type": [
+        "home",
+        "banner"
+      ],
+      "codename": "add_banner"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change banner",
+      "content_type": [
+        "home",
+        "banner"
+      ],
+      "codename": "change_banner"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete banner",
+      "content_type": [
+        "home",
+        "banner"
+      ],
+      "codename": "delete_banner"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view banner",
+      "content_type": [
+        "home",
+        "banner"
+      ],
+      "codename": "view_banner"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add category",
+      "content_type": [
+        "home",
+        "category"
+      ],
+      "codename": "add_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change category",
+      "content_type": [
+        "home",
+        "category"
+      ],
+      "codename": "change_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete category",
+      "content_type": [
+        "home",
+        "category"
+      ],
+      "codename": "delete_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view category",
+      "content_type": [
+        "home",
+        "category"
+      ],
+      "codename": "view_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add authenticator",
+      "content_type": [
+        "mfa",
+        "authenticator"
+      ],
+      "codename": "add_authenticator"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change authenticator",
+      "content_type": [
+        "mfa",
+        "authenticator"
+      ],
+      "codename": "change_authenticator"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete authenticator",
+      "content_type": [
+        "mfa",
+        "authenticator"
+      ],
+      "codename": "delete_authenticator"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view authenticator",
+      "content_type": [
+        "mfa",
+        "authenticator"
+      ],
+      "codename": "view_authenticator"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add order",
+      "content_type": [
+        "orders",
+        "order"
+      ],
+      "codename": "add_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change order",
+      "content_type": [
+        "orders",
+        "order"
+      ],
+      "codename": "change_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete order",
+      "content_type": [
+        "orders",
+        "order"
+      ],
+      "codename": "delete_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view order",
+      "content_type": [
+        "orders",
+        "order"
+      ],
+      "codename": "view_order"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add order item",
+      "content_type": [
+        "orders",
+        "orderitem"
+      ],
+      "codename": "add_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change order item",
+      "content_type": [
+        "orders",
+        "orderitem"
+      ],
+      "codename": "change_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete order item",
+      "content_type": [
+        "orders",
+        "orderitem"
+      ],
+      "codename": "delete_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view order item",
+      "content_type": [
+        "orders",
+        "orderitem"
+      ],
+      "codename": "view_orderitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add payment",
+      "content_type": [
+        "payments",
+        "payment"
+      ],
+      "codename": "add_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change payment",
+      "content_type": [
+        "payments",
+        "payment"
+      ],
+      "codename": "change_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete payment",
+      "content_type": [
+        "payments",
+        "payment"
+      ],
+      "codename": "delete_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view payment",
+      "content_type": [
+        "payments",
+        "payment"
+      ],
+      "codename": "view_payment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add brand",
+      "content_type": [
+        "produits",
+        "brand"
+      ],
+      "codename": "add_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change brand",
+      "content_type": [
+        "produits",
+        "brand"
+      ],
+      "codename": "change_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete brand",
+      "content_type": [
+        "produits",
+        "brand"
+      ],
+      "codename": "delete_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view brand",
+      "content_type": [
+        "produits",
+        "brand"
+      ],
+      "codename": "view_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add product",
+      "content_type": [
+        "produits",
+        "product"
+      ],
+      "codename": "add_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change product",
+      "content_type": [
+        "produits",
+        "product"
+      ],
+      "codename": "change_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete product",
+      "content_type": [
+        "produits",
+        "product"
+      ],
+      "codename": "delete_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view product",
+      "content_type": [
+        "produits",
+        "product"
+      ],
+      "codename": "view_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add review",
+      "content_type": [
+        "reviews",
+        "review"
+      ],
+      "codename": "add_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change review",
+      "content_type": [
+        "reviews",
+        "review"
+      ],
+      "codename": "change_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete review",
+      "content_type": [
+        "reviews",
+        "review"
+      ],
+      "codename": "delete_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view review",
+      "content_type": [
+        "reviews",
+        "review"
+      ],
+      "codename": "view_review"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view session",
+      "content_type": [
+        "sessions",
+        "session"
+      ],
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add shipping address",
+      "content_type": [
+        "shipping",
+        "shippingaddress"
+      ],
+      "codename": "add_shippingaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change shipping address",
+      "content_type": [
+        "shipping",
+        "shippingaddress"
+      ],
+      "codename": "change_shippingaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete shipping address",
+      "content_type": [
+        "shipping",
+        "shippingaddress"
+      ],
+      "codename": "delete_shippingaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view shipping address",
+      "content_type": [
+        "shipping",
+        "shippingaddress"
+      ],
+      "codename": "view_shippingaddress"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add shipping zone",
+      "content_type": [
+        "shipping",
+        "shippingzone"
+      ],
+      "codename": "add_shippingzone"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change shipping zone",
+      "content_type": [
+        "shipping",
+        "shippingzone"
+      ],
+      "codename": "change_shippingzone"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete shipping zone",
+      "content_type": [
+        "shipping",
+        "shippingzone"
+      ],
+      "codename": "delete_shippingzone"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view shipping zone",
+      "content_type": [
+        "shipping",
+        "shippingzone"
+      ],
+      "codename": "view_shippingzone"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "add_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "change_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "delete_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view site",
+      "content_type": [
+        "sites",
+        "site"
+      ],
+      "codename": "view_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add social account",
+      "content_type": [
+        "socialaccount",
+        "socialaccount"
+      ],
+      "codename": "add_socialaccount"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change social account",
+      "content_type": [
+        "socialaccount",
+        "socialaccount"
+      ],
+      "codename": "change_socialaccount"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete social account",
+      "content_type": [
+        "socialaccount",
+        "socialaccount"
+      ],
+      "codename": "delete_socialaccount"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view social account",
+      "content_type": [
+        "socialaccount",
+        "socialaccount"
+      ],
+      "codename": "view_socialaccount"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add social application",
+      "content_type": [
+        "socialaccount",
+        "socialapp"
+      ],
+      "codename": "add_socialapp"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change social application",
+      "content_type": [
+        "socialaccount",
+        "socialapp"
+      ],
+      "codename": "change_socialapp"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete social application",
+      "content_type": [
+        "socialaccount",
+        "socialapp"
+      ],
+      "codename": "delete_socialapp"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view social application",
+      "content_type": [
+        "socialaccount",
+        "socialapp"
+      ],
+      "codename": "view_socialapp"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add social application token",
+      "content_type": [
+        "socialaccount",
+        "socialtoken"
+      ],
+      "codename": "add_socialtoken"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change social application token",
+      "content_type": [
+        "socialaccount",
+        "socialtoken"
+      ],
+      "codename": "change_socialtoken"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete social application token",
+      "content_type": [
+        "socialaccount",
+        "socialtoken"
+      ],
+      "codename": "delete_socialtoken"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view social application token",
+      "content_type": [
+        "socialaccount",
+        "socialtoken"
+      ],
+      "codename": "view_socialtoken"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add user",
+      "content_type": [
+        "users",
+        "production"
+      ],
+      "codename": "add_production"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change user",
+      "content_type": [
+        "users",
+        "production"
+      ],
+      "codename": "change_production"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete user",
+      "content_type": [
+        "users",
+        "production"
+      ],
+      "codename": "delete_production"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view user",
+      "content_type": [
+        "users",
+        "production"
+      ],
+      "codename": "view_production"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view user",
+      "content_type": [
+        "users",
+        "user"
+      ],
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add wishlist",
+      "content_type": [
+        "wishlist",
+        "wishlist"
+      ],
+      "codename": "add_wishlist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change wishlist",
+      "content_type": [
+        "wishlist",
+        "wishlist"
+      ],
+      "codename": "change_wishlist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete wishlist",
+      "content_type": [
+        "wishlist",
+        "wishlist"
+      ],
+      "codename": "delete_wishlist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view wishlist",
+      "content_type": [
+        "wishlist",
+        "wishlist"
+      ],
+      "codename": "view_wishlist"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can add wishlist item",
+      "content_type": [
+        "wishlist",
+        "wishlistitem"
+      ],
+      "codename": "add_wishlistitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can change wishlist item",
+      "content_type": [
+        "wishlist",
+        "wishlistitem"
+      ],
+      "codename": "change_wishlistitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can delete wishlist item",
+      "content_type": [
+        "wishlist",
+        "wishlistitem"
+      ],
+      "codename": "delete_wishlistitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "fields": {
+      "name": "Can view wishlist item",
+      "content_type": [
+        "wishlist",
+        "wishlistitem"
+      ],
+      "codename": "view_wishlistitem"
+    }
+  },
+  {
+    "model": "sites.site",
+    "fields": {
+      "domain": "example.com",
+      "name": "backend"
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$dm1uY0plcjlndThBdFE0bWViRlljdQ$7hKcefX0j861o8HL793rUfX1tWqiJwP6a8dychylNBk",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "anne",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-03-29 16:42:08+00:00",
+      "nom_cli": "",
+      "commerçant": false,
+      "numero_cli": "",
+      "adresse_cli": "",
+      "ville_cli": "",
+      "code_postal_cli": "",
+      "pays_cli": "",
+      "logo_vendeur": "",
+      "image_vendeur": "",
+      "site_web_vendeur": null,
+      "telephone_vendeur": "",
+      "email_vendeur": "",
+      "description_vendeur": "",
+      "created_at": "2025-03-29 16:42:08.868478+00:00",
+      "updated_at": "2025-03-29 16:42:14.851970+00:00",
+      "boutique_description": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$Mk9BeEtTbDF1NXprNkJyTmlRanpEQg$z2CIezYC4bGiHmLiaA3ZKj4duPPD+0WWSModi0iWYVE",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "leo",
+      "first_name": "",
+      "last_name": "",
+      "email": "leo@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-12 18:58:06.516855+00:00",
+      "nom_cli": "leo",
+      "commerçant": false,
+      "numero_cli": "0170629746",
+      "adresse_cli": "stephie",
+      "ville_cli": "stephie",
+      "code_postal_cli": "1111111",
+      "pays_cli": "Côte d’Ivoire",
+      "logo_vendeur": "",
+      "image_vendeur": "",
+      "site_web_vendeur": null,
+      "telephone_vendeur": "",
+      "email_vendeur": "",
+      "description_vendeur": "",
+      "created_at": "2025-04-12 18:58:06.520530+00:00",
+      "updated_at": "2025-04-12 18:58:06.677677+00:00",
+      "boutique_description": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$WW56aUZjNUkwUDE2MGd3VGRNNHg2eg$Rc7ldjTnEFD6vnV3F3SoTTOV85AlHACnTJ1pGbpMGnM",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "lea",
+      "first_name": "",
+      "last_name": "",
+      "email": "lea@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-04-12 19:30:59.967610+00:00",
+      "nom_cli": "lea",
+      "commerçant": false,
+      "numero_cli": "0170629746",
+      "adresse_cli": "stephie",
+      "ville_cli": "stephie",
+      "code_postal_cli": "lea",
+      "pays_cli": "Côte d’Ivoire",
+      "logo_vendeur": "",
+      "image_vendeur": "",
+      "site_web_vendeur": null,
+      "telephone_vendeur": "",
+      "email_vendeur": "",
+      "description_vendeur": "",
+      "created_at": "2025-04-12 19:30:59.976301+00:00",
+      "updated_at": "2025-04-12 19:31:00.146420+00:00",
+      "boutique_description": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$RXVtOEVOOG10NFc1ZXA2YjhETDBnYw$aq83oqWmyu+h7IC+L1eP2MrmKjbgxAKT2sNH03obsU4",
+      "last_login": "2025-04-14 12:43:47.126333+00:00",
+      "is_superuser": true,
+      "username": "offo",
+      "first_name": "",
+      "last_name": "",
+      "email": "offo@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-03-13 06:44:59.886840+00:00",
+      "nom_cli": "",
+      "commerçant": false,
+      "numero_cli": "",
+      "adresse_cli": "",
+      "ville_cli": "",
+      "code_postal_cli": "",
+      "pays_cli": "",
+      "logo_vendeur": "",
+      "image_vendeur": "",
+      "site_web_vendeur": null,
+      "telephone_vendeur": "",
+      "email_vendeur": "",
+      "description_vendeur": "",
+      "created_at": "2025-03-13 06:45:00.057970+00:00",
+      "updated_at": "2025-03-13 06:45:00.057970+00:00",
+      "boutique_description": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$NU9DNEdHSGZ2WW1lZkxqc3JXRlhqeA$7I3oSTsW94GqHCgqdVBqOaZre1dpLLVjOL0iZC4CP7Q",
+      "last_login": "2025-09-28 14:56:40.036541+00:00",
+      "is_superuser": true,
+      "username": "qwetyuiop",
+      "first_name": "",
+      "last_name": "",
+      "email": "qw@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-09-28 14:55:46.759120+00:00",
+      "nom_cli": "",
+      "commerçant": false,
+      "numero_cli": "",
+      "adresse_cli": "",
+      "ville_cli": "",
+      "code_postal_cli": "",
+      "pays_cli": "",
+      "logo_vendeur": "",
+      "image_vendeur": "",
+      "site_web_vendeur": null,
+      "telephone_vendeur": "",
+      "email_vendeur": "",
+      "description_vendeur": "",
+      "created_at": "2025-09-28 14:55:46.855630+00:00",
+      "updated_at": "2025-09-28 14:55:46.855630+00:00",
+      "boutique_description": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "fields": {
+      "password": "argon2$argon2id$v=19$m=102400,t=2,p=8$SUdrVVk0b2hFTUFNOUVUdGJTbklORw$jhLZYR7ZbRcpeHYsH0bajHA5y3ef3BO1s9gTK1FXDlc",
+      "last_login": "2025-11-28 13:29:21.963395+00:00",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@admin.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-11-28 13:11:19.955466+00:00",
+      "nom_cli": "",
+      "commerçant": false,
+      "numero_cli": "",
+      "adresse_cli": "",
+      "ville_cli": "",
+      "code_postal_cli": "",
+      "pays_cli": "",
+      "logo_vendeur": "",
+      "image_vendeur": "",
+      "site_web_vendeur": null,
+      "telephone_vendeur": "",
+      "email_vendeur": "",
+      "description_vendeur": "",
+      "created_at": "2025-11-28 13:11:20.043636+00:00",
+      "updated_at": "2025-11-28 13:11:20.043636+00:00",
+      "boutique_description": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 25,
+    "fields": {
+      "image": "products/i102129-peche-nu_QkxjGQw.webp",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "peche",
+      "description": "",
+      "price": 6500,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:31:10.923278+00:00",
+      "updated_at": "2025-03-13 18:31:10.923278+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 24,
+    "fields": {
+      "image": "products/raisin-sante_v2Y6AZ1.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "raisin",
+      "description": "",
+      "price": 5400,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:30:42.327466+00:00",
+      "updated_at": "2025-03-13 18:30:42.327466+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 23,
+    "fields": {
+      "image": "products/Cover-FRAISES_i6eK2pt.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "fraise",
+      "description": "",
+      "price": 4500,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:30:16.686943+00:00",
+      "updated_at": "2025-03-13 18:30:16.686943+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 22,
+    "fields": {
+      "image": "products/images_3_RUkTtfo.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "citron",
+      "description": "",
+      "price": 4500,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:29:53.050314+00:00",
+      "updated_at": "2025-03-13 18:29:53.050314+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 21,
+    "fields": {
+      "image": "products/Citron-vert-800x533_omGKAPz.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "citron",
+      "description": "",
+      "price": 7400,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:29:25.316819+00:00",
+      "updated_at": "2025-03-13 18:29:25.316819+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 20,
+    "fields": {
+      "image": "products/Pomme-1024x1024-1_9FHVH45.png",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "pomme",
+      "description": "",
+      "price": 12000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:28:55.150058+00:00",
+      "updated_at": "2025-03-13 18:48:09.230929+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 2,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 19,
+    "fields": {
+      "image": "products/pommecajou_99bm3gN.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "acajou",
+      "description": "",
+      "price": 7500,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:28:27.454686+00:00",
+      "updated_at": "2025-03-13 20:14:54.117125+00:00",
+      "promotion": true,
+      "promotion_price": "5000.00",
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 18,
+    "fields": {
+      "image": "products/4EXWYW7ZWMCHKKPCYRDPHHA644_g5aeLcj.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "cacaouette",
+      "description": "",
+      "price": 9700,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:27:55.578225+00:00",
+      "updated_at": "2025-03-13 18:27:55.578225+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 17,
+    "fields": {
+      "image": "products/MAIS-FRAIS2_FMogj23.png",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "mais",
+      "description": "",
+      "price": 4500,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:27:11.693191+00:00",
+      "updated_at": "2025-03-13 18:27:11.693191+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 16,
+    "fields": {
+      "image": "",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "cacao",
+      "description": "",
+      "price": 7000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:26:41.207096+00:00",
+      "updated_at": "2025-03-13 18:26:41.207096+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 15,
+    "fields": {
+      "image": "products/Cacao-Trinitario_S2jS3z7.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "cacao",
+      "description": "",
+      "price": 4000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:26:18.672569+00:00",
+      "updated_at": "2025-03-13 18:26:18.672569+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 14,
+    "fields": {
+      "image": "products/dpp003-en-savoir-plus-sur-le-ble-tendre_InYeCRl.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "Ble",
+      "description": "",
+      "price": 64200,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:24:51.349704+00:00",
+      "updated_at": "2025-03-13 18:24:51.349704+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 13,
+    "fields": {
+      "image": "products/2-arachide-cacahuete_1KL85L0.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "arachide",
+      "description": "",
+      "price": 9400,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:23:32.958417+00:00",
+      "updated_at": "2025-03-13 18:23:57.530337+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 12,
+    "fields": {
+      "image": "products/piment-1-696x385-1_kMXvuty.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "piment",
+      "description": "",
+      "price": 31000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:23:02.516973+00:00",
+      "updated_at": "2025-03-13 18:23:02.516973+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 11,
+    "fields": {
+      "image": "products/i102106-noix-coco-nu_AHcEhW6.webp",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "coco",
+      "description": "",
+      "price": 14000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:22:28.530745+00:00",
+      "updated_at": "2025-03-18 10:26:01.404670+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 2,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 10,
+    "fields": {
+      "image": "products/mangue-opti_35olkxE.jpeg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "Mangue",
+      "description": "",
+      "price": 41000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:22:03.151242+00:00",
+      "updated_at": "2025-03-13 18:22:03.151242+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 9,
+    "fields": {
+      "image": "products/images_2_8C9RsvC.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "Orange",
+      "description": "",
+      "price": 56000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:21:32.106857+00:00",
+      "updated_at": "2025-03-13 18:21:32.106857+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 8,
+    "fields": {
+      "image": "products/manioc_Ack6aUJ.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "manioc",
+      "description": "",
+      "price": 36000,
+      "is_featured": false,
+      "created_at": "2025-03-13 18:20:58.946915+00:00",
+      "updated_at": "2025-03-13 18:20:58.946915+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 7,
+    "fields": {
+      "image": "products/d69cf9e0-7286-11ee-a503-4588075e3427.jpg_giVQAl3.webp",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "igname",
+      "description": "",
+      "price": 7500,
+      "is_featured": false,
+      "created_at": "2025-03-13 16:09:07.678797+00:00",
+      "updated_at": "2025-03-13 16:09:07.678797+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 6,
+    "fields": {
+      "image": "products/images_1_b0JskIp.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "banane",
+      "description": "",
+      "price": 17000,
+      "is_featured": false,
+      "created_at": "2025-03-13 16:08:32.454579+00:00",
+      "updated_at": "2025-03-13 16:08:32.454579+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 5,
+    "fields": {
+      "image": "products/i102113-oignon-vert-nu_eDko5Wu.webp",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "oignon",
+      "description": "",
+      "price": 8000,
+      "is_featured": false,
+      "created_at": "2025-03-13 16:07:45.956536+00:00",
+      "updated_at": "2025-03-13 16:07:45.956536+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 4,
+    "fields": {
+      "image": "products/540x540-3232760ef08de334_xFYWFxC.jpeg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "tomate",
+      "description": "",
+      "price": 60000,
+      "is_featured": false,
+      "created_at": "2025-03-13 16:06:59.608905+00:00",
+      "updated_at": "2025-03-13 20:14:10.480993+00:00",
+      "promotion": true,
+      "promotion_price": "45000.00",
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 3,
+    "fields": {
+      "image": "products/IMG_0172_eX2In7u.webp",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "aubergine",
+      "description": "",
+      "price": 45000,
+      "is_featured": false,
+      "created_at": "2025-03-13 16:06:11.145209+00:00",
+      "updated_at": "2025-11-28 13:56:45.475398+00:00",
+      "promotion": false,
+      "promotion_price": null,
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 4,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 2,
+    "fields": {
+      "image": "products/gombos-flickr-5001531676_eb4e9e5d23_c_kypNsSH.webp",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "gonbo",
+      "description": "",
+      "price": 35000,
+      "is_featured": false,
+      "created_at": "2025-03-13 16:05:35.253302+00:00",
+      "updated_at": "2025-03-13 20:13:50.465832+00:00",
+      "promotion": true,
+      "promotion_price": "20000.00",
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 0,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "produits.product",
+    "pk": 1,
+    "fields": {
+      "image": "products/images_3.jpg",
+      "image_2": "",
+      "image_3": "",
+      "image_4": "",
+      "name": "citron",
+      "description": "",
+      "price": 8000,
+      "is_featured": false,
+      "created_at": "2025-03-13 06:48:46.244521+00:00",
+      "updated_at": "2025-03-13 18:17:51.876584+00:00",
+      "promotion": true,
+      "promotion_price": "5000.00",
+      "categorie": null,
+      "user": [
+        "offo"
+      ],
+      "views": 2,
+      "stock": 0,
+      "brand": null,
+      "model_name": "",
+      "condition": "new",
+      "color": "",
+      "ram": null,
+      "storage": null,
+      "screen_size": null,
+      "battery_capacity": null,
+      "operating_system": "",
+      "network": "",
+      "dual_sim": false,
+      "main_camera": "",
+      "front_camera": ""
+    }
+  },
+  {
+    "model": "home.banner",
+    "pk": 1,
+    "fields": {
+      "title": "banniere",
+      "image": "banners/ban1_GCJLUiH.png",
+      "link": null,
+      "created_at": "2025-03-13 06:47:38.640211+00:00"
+    }
+  },
+  {
+    "model": "home.banner",
+    "pk": 2,
+    "fields": {
+      "title": "ttt",
+      "image": "banners/banner5_pMjjAr7.webp",
+      "link": null,
+      "created_at": "2025-03-13 18:32:37.077314+00:00"
+    }
+  },
+  {
+    "model": "home.category",
+    "pk": 1,
+    "fields": {
+      "name": "Céréales et grains",
+      "description": "",
+      "created_at": "2025-03-13 18:14:30.940302+00:00"
+    }
+  },
+  {
+    "model": "home.category",
+    "pk": 2,
+    "fields": {
+      "name": "Légumineuses",
+      "description": "",
+      "created_at": "2025-03-13 18:14:41.352112+00:00"
+    }
+  },
+  {
+    "model": "home.category",
+    "pk": 3,
+    "fields": {
+      "name": "Fruits frais",
+      "description": "",
+      "created_at": "2025-03-13 18:14:53.448075+00:00"
+    }
+  },
+  {
+    "model": "home.category",
+    "pk": 4,
+    "fields": {
+      "name": "Légumes frais",
+      "description": "",
+      "created_at": "2025-03-13 18:15:04.130287+00:00"
+    }
+  }
+]
