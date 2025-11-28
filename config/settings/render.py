@@ -97,12 +97,21 @@ EMAIL_BACKEND = env(
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://frontend-ecom-weld.vercel.app",
 ])
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://frontend-ecom-weld.vercel.app",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 # Ajoutez dynamiquement le hostname Render
 if RENDER_EXTERNAL_HOSTNAME:
     CORS_ALLOWED_ORIGINS.append(f"https://{RENDER_EXTERNAL_HOSTNAME}")
-    CSRF_TRUSTED_ORIGINS = [f"https://{RENDER_EXTERNAL_HOSTNAME}"]
+    CSRF_TRUSTED_ORIGINS.append(f"https://{RENDER_EXTERNAL_HOSTNAME}")
 
 # ADMIN
 ADMIN_URL = env("DJANGO_ADMIN_URL", default="admin/")
