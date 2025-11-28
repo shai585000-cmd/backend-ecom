@@ -33,6 +33,7 @@ drf-spectacular==0.28.0  # https://github.com/tfranzel/drf-spectacular
 # Database
 # ------------------------------------------------------------------------------
 psycopg[c]==3.2.3  # https://github.com/psycopg/psycopg
+psycopg2-binary==2.9.9  # Fallback pour Render/Heroku
 
 # Testing
 # ------------------------------------------------------------------------------
@@ -67,6 +68,7 @@ ipython==8.31.0
 # Production
 # ------------------------------------------------------------------------------
 gunicorn==23.0.0  # https://github.com/benoitc/gunicorn
+dj-database-url==2.1.0  # https://github.com/jazzband/dj-database-url
 
 # Other dependencies
 # ------------------------------------------------------------------------------
