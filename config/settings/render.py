@@ -70,13 +70,12 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # ------------------------------------------------------------------------------
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media files - Local storage (ephemeral on Render free tier)
-# Pour des fichiers persistants, utilisez Cloudinary ou AWS S3
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+# Django 4.2+ STORAGES configuration
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
