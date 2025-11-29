@@ -10,7 +10,7 @@ from .serializers import (
     OrderCreateSerializer,
     OrderStatusUpdateSerializer,
 )
-from backend.cart.models import Cart, CartItem
+from backend.produits.models import Product
 
 
 class OrderViewSet(viewsets.ModelViewSet):
@@ -38,36 +38,43 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     @transaction.atomic
     def create(self, request, *args, **kwargs):
-        """Créer une commande à partir du panier de l'utilisateur"""
+        """Créer une commande à partir des items envoyés depuis le frontend"""
         serializer = OrderCreateSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        # Récupérer le panier de l'utilisateur
-        try:
-            cart = Cart.objects.get(user=request.user)
-            cart_items = cart.items.select_related('product').all()
-        except Cart.DoesNotExist:
+        # Récupérer les items du panier depuis la requête
+        cart_items = serializer.validated_data.get('items', [])
+
+        if not cart_items:
             return Response(
                 {"error": "Votre panier est vide"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        if not cart_items.exists():
-            return Response(
-                {"error": "Votre panier est vide"},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        # Vérifier le stock de chaque produit
+        # Vérifier le stock et récupérer les produits
+        products_data = []
         for item in cart_items:
-            if item.product and item.product.stock < item.quantity:
+            try:
+                product = Product.objects.get(id=item['product_id'])
+                if product.stock < item['quantity']:
+                    return Response(
+                        {"error": f"Stock insuffisant pour {product.name}. Disponible: {product.stock}"},
+                        status=status.HTTP_400_BAD_REQUEST
+                    )
+                products_data.append({
+                    'product': product,
+                    'quantity': item['quantity'],
+                    'price': item['price']
+                })
+            except Product.DoesNotExist:
                 return Response(
-                    {"error": f"Stock insuffisant pour {item.product.name}. Disponible: {item.product.stock}"},
+                    {"error": f"Produit avec l'ID {item['product_id']} introuvable"},
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
         # Calculer le total
-        total_amount = sum(item.price * item.quantity for item in cart_items)
+        total_amount = sum(item['price'] * item['quantity'] for item in products_data)
 
         # Générer un numéro de commande unique
         order_number = f"ORD-{uuid.uuid4().hex[:8].upper()}"
@@ -84,22 +91,19 @@ class OrderViewSet(viewsets.ModelViewSet):
         )
 
         # Créer les articles de la commande et mettre à jour le stock
-        for item in cart_items:
+        for item in products_data:
+            product = item['product']
             OrderItem.objects.create(
                 order=order,
-                product=item.product,
-                product_name=item.product.name if item.product else "Produit supprimé",
-                quantity=item.quantity,
-                unit_price=item.price,
-                total_price=item.price * item.quantity,
+                product=product,
+                product_name=product.name,
+                quantity=item['quantity'],
+                unit_price=item['price'],
+                total_price=item['price'] * item['quantity'],
             )
             # Décrémenter le stock
-            if item.product:
-                item.product.stock -= item.quantity
-                item.product.save()
-
-        # Vider le panier
-        cart_items.delete()
+            product.stock -= item['quantity']
+            product.save()
 
         # Retourner la commande créée
         return Response(
