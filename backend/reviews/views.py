@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django.db.models import Avg, Count
 from .models import Review
 from .serializers import ReviewSerializer, ReviewCreateSerializer, ProductReviewStatsSerializer
+from backend.orders.models import Order, OrderItem
 
 
 class ReviewViewSet(viewsets.ModelViewSet):
@@ -35,9 +36,18 @@ class ReviewViewSet(viewsets.ModelViewSet):
         
         return queryset
     
+    def has_purchased_product(self, user, product_id):
+        """Verifie si l'utilisateur a achete et recu le produit"""
+        return OrderItem.objects.filter(
+            order__user=user,
+            order__status='delivered',
+            product_id=product_id
+        ).exists()
+    
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        # Le serializer gere la verification d'achat dans sa methode create()
         review = serializer.save()
         return Response(
             ReviewSerializer(review).data,
@@ -107,7 +117,11 @@ class ReviewViewSet(viewsets.ModelViewSet):
     def can_review(self, request, product_id=None):
         """Verifier si l'utilisateur peut laisser un avis"""
         if not request.user.is_authenticated:
-            return Response({'can_review': False, 'reason': 'non_authenticated'})
+            return Response({
+                'can_review': False, 
+                'reason': 'non_authenticated',
+                'message': 'Vous devez etre connecte pour laisser un avis'
+            })
         
         # Verifier si deja un avis
         has_review = Review.objects.filter(
@@ -116,6 +130,24 @@ class ReviewViewSet(viewsets.ModelViewSet):
         ).exists()
         
         if has_review:
-            return Response({'can_review': False, 'reason': 'already_reviewed'})
+            return Response({
+                'can_review': False, 
+                'reason': 'already_reviewed',
+                'message': 'Vous avez deja laisse un avis pour ce produit'
+            })
         
-        return Response({'can_review': True})
+        # Verifier si l'utilisateur a achete et recu le produit
+        has_purchased = self.has_purchased_product(request.user, product_id)
+        
+        if not has_purchased:
+            return Response({
+                'can_review': False,
+                'reason': 'not_purchased',
+                'message': 'Vous devez avoir recu ce produit pour laisser un avis'
+            })
+        
+        return Response({
+            'can_review': True,
+            'has_purchased': True,
+            'message': 'Vous pouvez laisser un avis'
+        })

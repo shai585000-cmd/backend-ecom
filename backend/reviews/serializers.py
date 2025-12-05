@@ -36,16 +36,21 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
                 {"error": "Vous avez deja laisse un avis pour ce produit"}
             )
         
-        # Verifier si c'est un achat verifie
-        is_verified = Order.objects.filter(
+        # Verifier si l'utilisateur a achete et recu le produit
+        has_delivered_order = Order.objects.filter(
             user=user,
             items__product=product,
             status='delivered'
         ).exists()
         
+        if not has_delivered_order:
+            raise serializers.ValidationError(
+                {"error": "Vous devez avoir recu ce produit pour laisser un avis"}
+            )
+        
         review = Review.objects.create(
             user=user,
-            is_verified_purchase=is_verified,
+            is_verified_purchase=True,
             **validated_data
         )
         return review

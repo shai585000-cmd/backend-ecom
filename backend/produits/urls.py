@@ -7,6 +7,7 @@ app_name = 'produits'
 urlpatterns = [
     path('products/', views.ProductListView.as_view(), name='product-list'),  # /api/products/
     path('products/<int:id>/', views.ProductDetailView.as_view(), name='product-detail'),  # /api/products/<id>/
+    path('products/<int:id>/recommended/', views.RecommendedProductsView.as_view(), name='product-recommended'),  # /api/products/<id>/recommended/
     path('featured-products/', views.FeaturedProductsView.as_view(), name='featured-products'),  # /api/featured-products/
     path('products/create/', views.ProductCreateView.as_view(), name='product-create'),  # /api/products/create/
     path('products/<int:pk>/update/', views.ProductUpdateView.as_view(), name='product-update'),  # /api/products/<id>/update/

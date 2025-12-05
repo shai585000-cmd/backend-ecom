@@ -1,0 +1,281 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+    /* Container principal */
+    .admin-header {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    
+    /* KPIs Section */
+    .kpi-section {
+        padding: 24px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 16px;
+    }
+    
+    .kpi-card {
+        text-align: center;
+        padding: 16px;
+        background: #f9fafb;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+    }
+    
+    .kpi-value {
+        font-size: 28px;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 4px;
+    }
+    
+    .kpi-label {
+        font-size: 12px;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Today Stats */
+    .today-stats {
+        padding: 20px 24px;
+        background: #f9fafb;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .today-stats h3 {
+        margin: 0 0 12px 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #374151;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .stats-row {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+    
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+        font-weight: 600;
+        color: #111827;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 2px;
+    }
+    
+    /* Status Filter */
+    .status-filter {
+        padding: 20px 24px;
+        background: #ffffff;
+    }
+    
+    .filter-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 12px;
+        display: block;
+    }
+    
+    .status-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .status-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        background: #f3f4f6;
+        color: #374151;
+        border: 1px solid #e5e7eb;
+        transition: all 0.15s;
+    }
+    
+    .status-btn:hover {
+        background: #e5e7eb;
+        border-color: #d1d5db;
+    }
+    
+    .status-btn.active {
+        background: #111827;
+        color: #ffffff;
+        border-color: #111827;
+    }
+    
+    .status-count {
+        background: rgba(0, 0, 0, 0.1);
+        padding: 2px 6px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: 600;
+    }
+    
+    .status-btn.active .status-count {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Actions Info */
+    .actions-info {
+        margin-bottom: 16px;
+        padding: 12px 16px;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 13px;
+        color: #6b7280;
+    }
+    
+    .actions-info strong {
+        color: #374151;
+    }
+    
+    /* Table Enhancement */
+    #result_list {
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    
+    #result_list thead th {
+        background: #f9fafb;
+        font-weight: 600;
+        font-size: 12px;
+        color: #374151;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        border-bottom: 2px solid #e5e7eb;
+    }
+    
+    #result_list tbody tr:hover {
+        background: #f9fafb;
+    }
+    
+    #result_list tbody td {
+        border-bottom: 1px solid #f3f4f6;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Header Admin -->
+<div class="admin-header">
+    <!-- KPIs -->
+    <div class="kpi-section">
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value">{{ total_orders }}</div>
+                <div class="kpi-label">Total</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">{{ pending_count }}</div>
+                <div class="kpi-label">En attente</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">{{ confirmed_count }}</div>
+                <div class="kpi-label">Confirmees</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">{{ processing_count }}</div>
+                <div class="kpi-label">Traitement</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">{{ shipped_count }}</div>
+                <div class="kpi-label">Expediees</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">{{ delivered_count }}</div>
+                <div class="kpi-label">Livrees</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">{{ total_revenue }}</div>
+                <div class="kpi-label">CA (FCFA)</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Today Stats -->
+    <div class="today-stats">
+        <h3>Statistiques du jour</h3>
+        <div class="stats-row">
+            <div class="stat-item">
+                <span class="stat-value">{{ today_orders }}</span>
+                <span class="stat-label">Nouvelles commandes</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">{{ today_revenue }}</span>
+                <span class="stat-label">Revenus (FCFA)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">{{ today_delivered }}</span>
+                <span class="stat-label">Livraisons</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Status Filter -->
+    <div class="status-filter">
+        <span class="filter-label">Filtrer par statut</span>
+        <div class="status-buttons">
+            <a href="?" class="status-btn {% if not current_status %}active{% endif %}">
+                Toutes <span class="status-count">{{ total_orders }}</span>
+            </a>
+            <a href="?status__exact=pending" class="status-btn {% if current_status == 'pending' %}active{% endif %}">
+                En attente <span class="status-count">{{ pending_count }}</span>
+            </a>
+            <a href="?status__exact=confirmed" class="status-btn {% if current_status == 'confirmed' %}active{% endif %}">
+                Confirmees <span class="status-count">{{ confirmed_count }}</span>
+            </a>
+            <a href="?status__exact=processing" class="status-btn {% if current_status == 'processing' %}active{% endif %}">
+                Traitement <span class="status-count">{{ processing_count }}</span>
+            </a>
+            <a href="?status__exact=shipped" class="status-btn {% if current_status == 'shipped' %}active{% endif %}">
+                Expediees <span class="status-count">{{ shipped_count }}</span>
+            </a>
+            <a href="?status__exact=delivered" class="status-btn {% if current_status == 'delivered' %}active{% endif %}">
+                Livrees <span class="status-count">{{ delivered_count }}</span>
+            </a>
+            <a href="?status__exact=cancelled" class="status-btn {% if current_status == 'cancelled' %}active{% endif %}">
+                Annulees <span class="status-count">{{ cancelled_count }}</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Actions Info -->
+<div class="actions-info">
+    <strong>Actions rapides :</strong> Selectionnez une ou plusieurs commandes ci-dessous, puis utilisez le menu deroulant "Action" pour modifier leur statut en masse.
+</div>
+
+<!-- Original Content (Table) -->
+{{ block.super }}
+{% endblock %}

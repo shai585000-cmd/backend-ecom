@@ -6,11 +6,12 @@ from django.contrib.auth import get_user_model
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 
 # Imports internes
 from .models import Product
 from .serializers import ProductSerializer
+from .recommendation_utils import get_recommended_products
 
 # Obtenir le modèle User personnalisé
 User = get_user_model()
@@ -89,18 +90,69 @@ class DashboardProduits(APIView):
 
 # Création d'un produit
 class ProductCreateView(generics.CreateAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdminUser]  # ✅ Sécurisé - Admin seulement
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 # Mise à jour d'un produit
 class ProductUpdateView(generics.UpdateAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdminUser]  # ✅ Sécurisé - Admin seulement
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 # Suppression d'un produit
 class ProductDeleteView(generics.DestroyAPIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdminUser]  # ✅ Sécurisé - Admin seulement
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+
+# Vue pour les produits recommandés basés sur l'IA (similarité cosinus)
+class RecommendedProductsView(APIView):
+    """
+    Retourne les produits recommandés pour un produit donné.
+    Utilise un algorithme de similarité cosinus basé sur :
+    - Catégorie
+    - Marque
+    - Prix
+    - Spécifications techniques (RAM, stockage, écran)
+    - Système d'exploitation
+    - État du produit
+    """
+    permission_classes = [AllowAny]
+    
+    def get(self, request, id):
+        try:
+            # Récupérer le produit cible
+            target_product = get_object_or_404(Product, id=id)
+            
+            # Récupérer tous les autres produits disponibles (avec stock > 0)
+            all_products = Product.objects.filter(stock__gt=0).exclude(id=id)
+            
+            # Obtenir les recommandations (limite à 10 par défaut)
+            limit = int(request.query_params.get('limit', 10))
+            recommended_products = get_recommended_products(
+                target_product, 
+                all_products, 
+                limit=limit
+            )
+            
+            # Sérialiser et retourner les résultats
+            serializer = ProductSerializer(recommended_products, many=True)
+            
+            return Response({
+                'count': len(recommended_products),
+                'target_product_id': id,
+                'recommendations': serializer.data
+            }, status=status.HTTP_200_OK)
+            
+        except Product.DoesNotExist:
+            return Response(
+                {'error': 'Produit non trouvé'}, 
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return Response(
+                {'error': f'Erreur lors du calcul des recommandations: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

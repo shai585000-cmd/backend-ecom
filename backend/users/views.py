@@ -22,7 +22,10 @@ from rest_framework.permissions import AllowAny
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from rest_framework import status, serializers
-from .serializers import LoginSerializer, UserSerializer,DashboardSerializer
+from .serializers import (
+    LoginSerializer, UserSerializer, DashboardSerializer,
+    UserProfileSerializer, UserProfileUpdateSerializer, ChangePasswordSerializer
+)
 from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
@@ -107,6 +110,8 @@ class SignupView(APIView):
 
         return Response({'errors': serializer.errors}, status=HTTP_400_BAD_REQUEST)
 
+
+
 # View pour afficher le profil de l'utilisateur
 class UserProfileView(View):
     @login_required
@@ -117,9 +122,46 @@ class UserProfileView(View):
             'nom_cli': request.user.nom_cli
         })
     
+
+    
 class DashboardProfile(generics.RetrieveAPIView):
     serializer_class = DashboardSerializer
     permission_classes = [AllowAny]
     
     def get_object(self):
         return User.objects.get(id=self.kwargs['pk'])
+
+
+class CurrentUserProfileView(APIView):
+    """Recuperer et mettre a jour le profil de l'utilisateur connecte"""
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        serializer = UserProfileSerializer(request.user)
+        return Response(serializer.data)
+
+    def put(self, request):
+        serializer = UserProfileUpdateSerializer(request.user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                'message': 'Profil mis a jour avec succes',
+                'user': UserProfileSerializer(request.user).data
+            })
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def patch(self, request):
+        return self.put(request)
+
+
+class ChangePasswordView(APIView):
+    """Changer le mot de passe de l'utilisateur connecte"""
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = ChangePasswordSerializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            request.user.set_password(serializer.validated_data['new_password'])
+            request.user.save()
+            return Response({'message': 'Mot de passe modifie avec succes'})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
