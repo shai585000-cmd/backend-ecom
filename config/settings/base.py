@@ -444,7 +444,8 @@ JAZZMIN_UI_TWEAKS = {
         "warning": "btn-warning",
         "danger": "btn-danger",
         "success": "btn-success"
-    }
+    },
+    "custom_css": "admin/css/custom.css",
 }
 
 

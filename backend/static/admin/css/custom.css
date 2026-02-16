@@ -1,0 +1,17 @@
+/* Cacher la version de Jazzmin dans le footer */
+.main-footer .float-right,
+.main-footer .version {
+    display: none !important;
+}
+
+/* Cacher le lien "Version de Jazzmin" */
+footer a[href*="jazzmin"],
+footer a[href*="github.com/farridav/django-jazzmin"] {
+    display: none !important;
+}
+
+/* Style alternatif pour cacher tout texte contenant "Jazzmin" */
+.main-footer small,
+.main-footer .text-muted {
+    display: none !important;
+}
