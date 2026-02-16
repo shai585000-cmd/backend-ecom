@@ -5,7 +5,7 @@ import django
 # Ajouter le dossier backend au path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-os.environ['DATABASE_URL'] = "postgresql://ecommerce_gf50_user:eyefaetl2KIbxAZJ2EemVaCzLLzVD8Yg@dpg-d4kvo8v5r7bs73clpe9g-a.oregon-postgres.render.com/ecommerce_gf50"
+os.environ['DATABASE_URL'] = "postgresql://e_commerce_6c64_user:kahJ0huW9mo8LnCPemTsRLTkdkXm7CGT@dpg-d69c0n0gjchc73chbnk0-a.oregon-postgres.render.com/e_commerce_6c64"
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
 django.setup()
 
@@ -81,41 +81,54 @@ admin_user = User.objects.get(nom_cli='admin')
 smartphones_cat = Category.objects.get(name='Smartphones')
 
 products_data = [
-    # Apple
-    {'name': 'iPhone 15 Pro Max', 'description': 'Le dernier iPhone avec puce A17 Pro, écran Super Retina XDR 6.7"', 'price': 1479, 'stock': 50, 'brand': 'Apple', 'ram': 8, 'storage': 256, 'screen_size': 6.7, 'battery_capacity': 4422, 'main_camera': '48 MP + 12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g'},
-    {'name': 'iPhone 15', 'description': 'iPhone 15 avec Dynamic Island, puce A16 Bionic', 'price': 969, 'stock': 75, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3349, 'main_camera': '48 MP + 12 MP', 'operating_system': 'ios', 'network': '5g'},
-    {'name': 'iPhone 14', 'description': 'iPhone 14 avec écran Super Retina XDR, puce A15 Bionic', 'price': 769, 'stock': 100, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3279, 'main_camera': '12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g'},
+    # Apple - Images GSMArena (courtes et fiables)
+    {'name': 'iPhone 15 Pro Max', 'description': 'Le dernier iPhone avec puce A17 Pro, écran Super Retina XDR 6.7"', 'price': 1479, 'stock': 50, 'brand': 'Apple', 'ram': 8, 'storage': 256, 'screen_size': 6.7, 'battery_capacity': 4422, 'main_camera': '48 MP + 12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg'},
+    {'name': 'iPhone 15', 'description': 'iPhone 15 avec Dynamic Island, puce A16 Bionic', 'price': 969, 'stock': 75, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3349, 'main_camera': '48 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg'},
+    {'name': 'iPhone 14', 'description': 'iPhone 14 avec écran Super Retina XDR, puce A15 Bionic', 'price': 769, 'stock': 100, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3279, 'main_camera': '12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg'},
     # Samsung
-    {'name': 'Samsung Galaxy S24 Ultra', 'description': 'Galaxy S24 Ultra avec Galaxy AI, S Pen intégré', 'price': 1469, 'stock': 40, 'brand': 'Samsung', 'ram': 12, 'storage': 256, 'screen_size': 6.8, 'battery_capacity': 5000, 'main_camera': '200 MP + 12 MP + 50 MP', 'operating_system': 'android', 'network': '5g'},
-    {'name': 'Samsung Galaxy S24', 'description': 'Galaxy S24 avec écran Dynamic AMOLED 2X', 'price': 899, 'stock': 60, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4000, 'main_camera': '50 MP + 12 MP + 10 MP', 'operating_system': 'android', 'network': '5g'},
-    {'name': 'Samsung Galaxy A54', 'description': 'Galaxy A54 5G avec écran Super AMOLED', 'price': 449, 'stock': 120, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.4, 'battery_capacity': 5000, 'main_camera': '50 MP + 12 MP + 5 MP', 'operating_system': 'android', 'network': '5g'},
+    {'name': 'Samsung Galaxy S24 Ultra', 'description': 'Galaxy S24 Ultra avec Galaxy AI, S Pen intégré', 'price': 1469, 'stock': 40, 'brand': 'Samsung', 'ram': 12, 'storage': 256, 'screen_size': 6.8, 'battery_capacity': 5000, 'main_camera': '200 MP + 12 MP + 50 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg'},
+    {'name': 'Samsung Galaxy S24', 'description': 'Galaxy S24 avec écran Dynamic AMOLED 2X', 'price': 899, 'stock': 60, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4000, 'main_camera': '50 MP + 12 MP + 10 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24.jpg'},
+    {'name': 'Samsung Galaxy A54', 'description': 'Galaxy A54 5G avec écran Super AMOLED', 'price': 449, 'stock': 120, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.4, 'battery_capacity': 5000, 'main_camera': '50 MP + 12 MP + 5 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54-5g.jpg'},
     # Xiaomi
-    {'name': 'Xiaomi 14 Ultra', 'description': 'Xiaomi 14 Ultra avec optique Leica, Snapdragon 8 Gen 3', 'price': 1299, 'stock': 35, 'brand': 'Xiaomi', 'ram': 16, 'storage': 512, 'screen_size': 6.73, 'battery_capacity': 5300, 'main_camera': '50 MP + 50 MP + 50 MP', 'operating_system': 'android', 'network': '5g'},
-    {'name': 'Xiaomi Redmi Note 13 Pro', 'description': 'Redmi Note 13 Pro avec écran AMOLED, caméra 200 MP', 'price': 349, 'stock': 150, 'brand': 'Xiaomi', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 5100, 'main_camera': '200 MP + 8 MP + 2 MP', 'operating_system': 'android', 'network': '5g'},
+    {'name': 'Xiaomi 14 Ultra', 'description': 'Xiaomi 14 Ultra avec optique Leica, Snapdragon 8 Gen 3', 'price': 1299, 'stock': 35, 'brand': 'Xiaomi', 'ram': 16, 'storage': 512, 'screen_size': 6.73, 'battery_capacity': 5300, 'main_camera': '50 MP + 50 MP + 50 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg'},
+    {'name': 'Xiaomi Redmi Note 13 Pro', 'description': 'Redmi Note 13 Pro avec écran AMOLED, caméra 200 MP', 'price': 349, 'stock': 150, 'brand': 'Xiaomi', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 5100, 'main_camera': '200 MP + 8 MP + 2 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-5g.jpg'},
     # Google
-    {'name': 'Google Pixel 8 Pro', 'description': 'Pixel 8 Pro avec Tensor G3, 7 ans de mises à jour', 'price': 1099, 'stock': 45, 'brand': 'Google', 'ram': 12, 'storage': 128, 'screen_size': 6.7, 'battery_capacity': 5050, 'main_camera': '50 MP + 48 MP + 48 MP', 'operating_system': 'android', 'network': '5g'},
-    {'name': 'Google Pixel 8', 'description': 'Pixel 8 avec puce Tensor G3, écran Actua', 'price': 799, 'stock': 55, 'brand': 'Google', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4575, 'main_camera': '50 MP + 12 MP', 'operating_system': 'android', 'network': '5g'},
+    {'name': 'Google Pixel 8 Pro', 'description': 'Pixel 8 Pro avec Tensor G3, 7 ans de mises à jour', 'price': 1099, 'stock': 45, 'brand': 'Google', 'ram': 12, 'storage': 128, 'screen_size': 6.7, 'battery_capacity': 5050, 'main_camera': '50 MP + 48 MP + 48 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg'},
+    {'name': 'Google Pixel 8', 'description': 'Pixel 8 avec puce Tensor G3, écran Actua', 'price': 799, 'stock': 55, 'brand': 'Google', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4575, 'main_camera': '50 MP + 12 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8.jpg'},
     # OnePlus
-    {'name': 'OnePlus 12', 'description': 'OnePlus 12 avec Snapdragon 8 Gen 3, charge 100W', 'price': 919, 'stock': 40, 'brand': 'OnePlus', 'ram': 12, 'storage': 256, 'screen_size': 6.82, 'battery_capacity': 5400, 'main_camera': '50 MP + 48 MP + 64 MP', 'operating_system': 'android', 'network': '5g'},
+    {'name': 'OnePlus 12', 'description': 'OnePlus 12 avec Snapdragon 8 Gen 3, charge 100W', 'price': 919, 'stock': 40, 'brand': 'OnePlus', 'ram': 12, 'storage': 256, 'screen_size': 6.82, 'battery_capacity': 5400, 'main_camera': '50 MP + 48 MP + 64 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg'},
     # Huawei
-    {'name': 'Huawei P60 Pro', 'description': 'Huawei P60 Pro avec optique XMAGE', 'price': 1099, 'stock': 30, 'brand': 'Huawei', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 4815, 'main_camera': '48 MP + 13 MP + 48 MP', 'operating_system': 'android', 'network': '5g'},
+    {'name': 'Huawei P60 Pro', 'description': 'Huawei P60 Pro avec optique XMAGE', 'price': 1099, 'stock': 30, 'brand': 'Huawei', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 4815, 'main_camera': '48 MP + 13 MP + 48 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/huawei-p60-pro.jpg'},
 ]
 
 for prod_data in products_data:
-    if not Product.objects.filter(name=prod_data['name']).exists():
-        try:
-            brand = Brand.objects.get(name=prod_data.pop('brand'))
-            product = Product.objects.create(
-                brand=brand,
-                categorie=smartphones_cat,
-                user=admin_user,
+    product_name = prod_data['name']
+    image_url = prod_data.pop('image_url', None)
+    brand_name = prod_data.pop('brand')
+    
+    try:
+        brand = Brand.objects.get(name=brand_name)
+        product, created = Product.objects.get_or_create(
+            name=product_name,
+            defaults={
+                'brand': brand,
+                'categorie': smartphones_cat,
+                'user': admin_user,
                 **prod_data
-            )
+            }
+        )
+        
+        # Mettre à jour l'image avec l'URL externe
+        if image_url:
+            product.image = image_url
+            product.save()
+        
+        if created:
             print(f"   ✓ Produit créé: {product.name} - {product.price}€")
-        except Exception as e:
-            print(f"   ✗ Erreur pour {prod_data.get('name', 'inconnu')}: {e}")
-    else:
-        print(f"   - Produit existe déjà: {prod_data['name']}")
+        else:
+            print(f"   ✓ Image mise à jour: {product.name}")
+    except Exception as e:
+        print(f"   ✗ Erreur pour {product_name}: {e}")
 
 # 6. Créer des bannières
 print("6. Création des bannières...")

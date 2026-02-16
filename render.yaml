@@ -29,3 +29,9 @@ services:
         value: "False"
       - key: PYTHON_VERSION
         value: "3.11.0"
+      - key: CLOUDINARY_CLOUD_NAME
+        value: dirmdexmb
+      - key: CLOUDINARY_API_KEY
+        value: "699357357128696"
+      - key: CLOUDINARY_API_SECRET
+        value: 81pKdnNZXDJ6KE9b1b8QxqB57e0
