@@ -44,8 +44,14 @@ class ProductSerializer(serializers.ModelSerializer):
         if image_str.startswith('http://') or image_str.startswith('https://'):
             return image_str
         
+        # Essayer d'obtenir l'URL via le storage (fonctionne avec Cloudinary)
+        try:
+            return obj.image.url
+        except Exception:
+            pass
+        
         # Sinon retourner tel quel (chemin local)
         request = self.context.get('request')
         if request:
-            return request.build_absolute_uri(obj.image.url)
+            return request.build_absolute_uri(f'/media/{image_str}')
         return image_str
