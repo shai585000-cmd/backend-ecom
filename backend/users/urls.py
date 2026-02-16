@@ -13,4 +13,7 @@ urlpatterns = [
     # Nouveaux endpoints pour le profil
     path('me/', views.CurrentUserProfileView.as_view(), name='current-user-profile'),
     path('change-password/', views.ChangePasswordView.as_view(), name='change-password'),
+    # Google OAuth
+    path('google/login/', views.GoogleLoginView.as_view(), name='google-login'),
+    path('google/callback/', views.GoogleCallbackView.as_view(), name='google-callback'),
 ]

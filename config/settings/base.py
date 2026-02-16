@@ -61,6 +61,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.mfa",
     "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
     "rest_framework",
     "rest_framework_simplejwt",
     "rest_framework.authtoken",
@@ -285,6 +286,24 @@ ACCOUNT_ADAPTER = "backend.users.adapters.AccountAdapter"
 ACCOUNT_FORMS = {"signup": "backend.users.forms.UserSignupForm"}
 SOCIALACCOUNT_ADAPTER = "backend.users.adapters.SocialAccountAdapter"
 SOCIALACCOUNT_FORMS = {"signup": "backend.users.forms.UserSocialSignupForm"}
+
+# Configuration Google OAuth
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
+# URL de redirection apres authentification Google
+GOOGLE_OAUTH_CALLBACK_URL = env('GOOGLE_OAUTH_CALLBACK_URL', default='https://frontend-ecom-weld.vercel.app/')
+SOCIALACCOUNT_LOGIN_ON_GET = True
 
 
 CORS_URLS_REGEX = r"^/api/.*$"

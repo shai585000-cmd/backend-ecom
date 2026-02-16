@@ -165,3 +165,29 @@ class ChangePasswordView(APIView):
             request.user.save()
             return Response({'message': 'Mot de passe modifie avec succes'})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+from django.shortcuts import redirect
+from django.conf import settings
+
+class GoogleLoginView(View):
+    """Rediriger vers la page de connexion Google"""
+    def get(self, request):
+        return redirect('/accounts/google/login/')
+
+
+class GoogleCallbackView(APIView):
+    """Callback apres authentification Google - genere les tokens JWT"""
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        user = request.user
+        if user.is_authenticated:
+            refresh = RefreshToken.for_user(user)
+            frontend_url = getattr(settings, 'GOOGLE_OAUTH_CALLBACK_URL', 'https://frontend-ecom-weld.vercel.app/')
+            
+            # Rediriger vers le frontend avec les tokens
+            redirect_url = f"{frontend_url}?access={str(refresh.access_token)}&refresh={str(refresh)}"
+            return redirect(redirect_url)
+        
+        return Response({'error': 'Authentication failed'}, status=status.HTTP_401_UNAUTHORIZED)
