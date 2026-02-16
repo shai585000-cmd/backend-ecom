@@ -29,7 +29,7 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 
 
 
-DATABASES = {"default": env.db("DATABASE_URL")}
+DATABASES = {"default": env.db("DATABASE_URL", default="postgresql://e_commerce_6c64_user:kahJ0huW9mo8LnCPemTsRLTkdkXm7CGT@dpg-d69c0n0gjchc73chbnk0-a.oregon-postgres.render.com/e_commerce_6c64")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
