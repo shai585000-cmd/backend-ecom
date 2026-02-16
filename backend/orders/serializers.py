@@ -59,6 +59,8 @@ class OrderCreateSerializer(serializers.Serializer):
     shipping_city = serializers.CharField(max_length=100)
     shipping_phone = serializers.CharField(max_length=20)
     notes = serializers.CharField(required=False, allow_blank=True)
+    guest_name = serializers.CharField(max_length=100, required=False, allow_blank=True)
+    guest_email = serializers.EmailField(required=False, allow_blank=True)
     items = OrderItemCreateSerializer(many=True)
 
 

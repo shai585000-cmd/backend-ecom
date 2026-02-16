@@ -23,11 +23,13 @@ class OrderViewSet(viewsets.ModelViewSet):
     - POST /orders/{id}/cancel/ : Annuler une commande
     """
     serializer_class = OrderSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
         """Retourne uniquement les commandes de l'utilisateur connecté"""
-        return Order.objects.filter(user=self.request.user).prefetch_related('items')
+        if self.request.user.is_authenticated:
+            return Order.objects.filter(user=self.request.user).prefetch_related('items')
+        return Order.objects.none()
 
     def get_serializer_class(self):
         if self.action == 'create':
@@ -79,16 +81,25 @@ class OrderViewSet(viewsets.ModelViewSet):
         # Générer un numéro de commande unique
         order_number = f"ORD-{uuid.uuid4().hex[:8].upper()}"
 
-        # Créer la commande
-        order = Order.objects.create(
-            user=request.user,
-            order_number=order_number,
-            total_amount=total_amount,
-            shipping_address=serializer.validated_data['shipping_address'],
-            shipping_city=serializer.validated_data['shipping_city'],
-            shipping_phone=serializer.validated_data['shipping_phone'],
-            notes=serializer.validated_data.get('notes', ''),
-        )
+        # Créer la commande (avec ou sans utilisateur connecté)
+        order_data = {
+            'order_number': order_number,
+            'total_amount': total_amount,
+            'shipping_address': serializer.validated_data['shipping_address'],
+            'shipping_city': serializer.validated_data['shipping_city'],
+            'shipping_phone': serializer.validated_data['shipping_phone'],
+            'notes': serializer.validated_data.get('notes', ''),
+        }
+        
+        # Si l'utilisateur est connecté, associer la commande à son compte
+        if request.user.is_authenticated:
+            order_data['user'] = request.user
+        else:
+            # Pour les commandes invités, stocker le nom et email si fournis
+            order_data['guest_name'] = serializer.validated_data.get('guest_name', '')
+            order_data['guest_email'] = serializer.validated_data.get('guest_email', '')
+        
+        order = Order.objects.create(**order_data)
 
         # Créer les articles de la commande et mettre à jour le stock
         for item in products_data:
