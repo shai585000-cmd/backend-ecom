@@ -19,7 +19,7 @@ class Payment(models.Model):
         ('refunded', 'Remboursé'),
     ]
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='payments')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='payments', null=True, blank=True)
     order = models.OneToOneField(Order, on_delete=models.CASCADE, related_name='payment')
     transaction_id = models.CharField(max_length=100, unique=True, blank=True, null=True)
     payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES)

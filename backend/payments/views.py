@@ -18,10 +18,12 @@ class PaymentViewSet(viewsets.ModelViewSet):
     - POST /payments/{id}/confirm/ : Confirmer un paiement (Mobile Money)
     """
     serializer_class = PaymentSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def get_queryset(self):
-        return Payment.objects.filter(user=self.request.user).select_related('order')
+        if self.request.user.is_authenticated:
+            return Payment.objects.filter(user=self.request.user).select_related('order')
+        return Payment.objects.none()
 
     def create(self, request, *args, **kwargs):
         """Créer un paiement pour une commande"""
@@ -32,9 +34,12 @@ class PaymentViewSet(viewsets.ModelViewSet):
         payment_method = serializer.validated_data['payment_method']
         phone_number = serializer.validated_data.get('phone_number', '')
 
-        # Vérifier que la commande existe et appartient à l'utilisateur
+        # Vérifier que la commande existe
         try:
-            order = Order.objects.get(id=order_id, user=request.user)
+            if request.user.is_authenticated:
+                order = Order.objects.get(id=order_id, user=request.user)
+            else:
+                order = Order.objects.get(id=order_id)
         except Order.DoesNotExist:
             return Response(
                 {"error": "Commande introuvable"},
@@ -51,16 +56,19 @@ class PaymentViewSet(viewsets.ModelViewSet):
         # Générer un ID de transaction unique
         transaction_id = f"PAY-{uuid.uuid4().hex[:12].upper()}"
 
-        # Créer le paiement
-        payment = Payment.objects.create(
-            user=request.user,
-            order=order,
-            transaction_id=transaction_id,
-            payment_method=payment_method,
-            amount=order.total_amount,
-            phone_number=phone_number,
-            status='pending'
-        )
+        # Créer le paiement (avec ou sans utilisateur)
+        payment_data = {
+            'order': order,
+            'transaction_id': transaction_id,
+            'payment_method': payment_method,
+            'amount': order.total_amount,
+            'phone_number': phone_number,
+            'status': 'pending'
+        }
+        if request.user.is_authenticated:
+            payment_data['user'] = request.user
+        
+        payment = Payment.objects.create(**payment_data)
 
         # Pour le paiement cash, on le marque comme "en attente de livraison"
         if payment_method == 'cash':
