@@ -358,12 +358,12 @@ SIMPLE_JWT = {
 # Custom Admin Settings
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Desphixs",
-    "site_header": "Desphixs",
-    "site_brand": "Modern Marketplace ",
+    "site_title": "TECHSTORE",
+    "site_header": "TECHSTORE Admin",
+    "site_brand": "TECHSTORE",
 
-    "welcome_sign": "Welcome To Desphixs",
-    "copyright": "Desphixs",
+    "welcome_sign": "Bienvenue sur TECHSTORE",
+    "copyright": "TECHSTORE",
     "user_avatar": "images/photos/logo.jpg",
     "topmenu_links": [
         {"name": "Dashboard", "url": "home", "permissions": ["auth.view_user"]},
