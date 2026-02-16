@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Banner, Category
+from .models import Banner, Category, Announcement
 
 class BannerAdmin(admin.ModelAdmin):
     list_display = ('title', 'image_preview', 'link', 'created_at')
@@ -40,6 +40,14 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)  # Permet de rechercher par nom de catégorie
     list_filter = ('created_at',)  # Permet de filtrer par date de création
 
+class AnnouncementAdmin(admin.ModelAdmin):
+    list_display = ('emoji', 'text', 'is_active', 'order', 'created_at')
+    list_editable = ('is_active', 'order')
+    search_fields = ('text',)
+    list_filter = ('is_active', 'created_at')
+    ordering = ('order', '-created_at')
+
 # Enregistrement des modèles dans l'admin
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Announcement, AnnouncementAdmin)

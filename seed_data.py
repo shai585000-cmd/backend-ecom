@@ -11,7 +11,7 @@ django.setup()
 
 from django.contrib.auth import get_user_model
 from backend.produits.models import Product, Brand
-from backend.home.models import Banner, Category
+from backend.home.models import Banner, Category, Announcement
 
 User = get_user_model()
 
@@ -142,6 +142,24 @@ for banner_data in banners_data:
     if created:
         print(f"   ✓ Bannière créée: {banner.title}")
 
+# 7. Créer les annonces défilantes
+print("7. Création des annonces défilantes...")
+announcements_data = [
+    {'text': 'Livraison GRATUITE pour toute commande supérieure à 50 000 FCFA', 'emoji': '🔥', 'order': 1},
+    {'text': 'Nouveaux iPhone 15 disponibles !', 'emoji': '📱', 'order': 2},
+    {'text': 'Garantie 12 mois sur tous nos produits', 'emoji': '⚡', 'order': 3},
+    {'text': 'Paiement sécurisé par Mobile Money et Carte Bancaire', 'emoji': '💳', 'order': 4},
+    {'text': 'Service client disponible 24h/24 et 7j/7', 'emoji': '🎧', 'order': 5},
+]
+
+for ann_data in announcements_data:
+    announcement, created = Announcement.objects.get_or_create(
+        text=ann_data['text'],
+        defaults={'emoji': ann_data['emoji'], 'order': ann_data['order'], 'is_active': True}
+    )
+    if created:
+        print(f"   ✓ Annonce créée: {ann_data['emoji']} {ann_data['text'][:40]}...")
+
 print("\n=== Données de test créées avec succès! ===")
 print("\nComptes utilisateurs:")
 print("  - Admin: admin / admin123")
@@ -149,3 +167,4 @@ print("  - Test:  testuser / test123")
 print(f"\nProduits créés: {Product.objects.count()}")
 print(f"Marques créées: {Brand.objects.count()}")
 print(f"Catégories créées: {Category.objects.count()}")
+print(f"Annonces créées: {Announcement.objects.filter(is_active=True).count()}")
