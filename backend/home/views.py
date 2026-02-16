@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.permissions import AllowAny, IsAdminUser
+from rest_framework.response import Response
 
 # Create your views here.
 from rest_framework import generics
@@ -23,7 +24,17 @@ class AnnouncementListView(generics.ListAPIView):
     serializer_class = AnnouncementSerializer
     
     def get_queryset(self):
-        return Announcement.objects.filter(is_active=True)
+        try:
+            return Announcement.objects.filter(is_active=True)
+        except Exception:
+            return Announcement.objects.none()
+    
+    def list(self, request, *args, **kwargs):
+        try:
+            return super().list(request, *args, **kwargs)
+        except Exception:
+            # Retourner une liste vide si la table n'existe pas encore
+            return Response([])
 
 # View pour gérer les annonces (admin)
 class AnnouncementAdminView(generics.ListCreateAPIView):
