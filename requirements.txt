@@ -119,3 +119,4 @@ pluggy==1.5.0
 gunicorn>=20.0.4
 cloudinary==1.44.1
 django-cloudinary-storage==0.3.0
+google-auth==2.27.0

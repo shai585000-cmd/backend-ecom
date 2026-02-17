@@ -191,3 +191,57 @@ class GoogleCallbackView(APIView):
             return redirect(redirect_url)
         
         return Response({'error': 'Authentication failed'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+from google.oauth2 import id_token
+from google.auth.transport import requests as google_requests
+
+class GoogleAuthView(APIView):
+    """Authentification Google cote client - recoit le credential et cree/connecte l'utilisateur"""
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        credential = request.data.get('credential')
+        
+        if not credential:
+            return Response({'error': 'Credential manquant'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        try:
+            # Verifier le token Google
+            idinfo = id_token.verify_oauth2_token(
+                credential,
+                google_requests.Request(),
+                '427788449898-u3i5tqe9dnpvice4kjr3rp06vbfou4sv.apps.googleusercontent.com'
+            )
+            
+            email = idinfo.get('email')
+            name = idinfo.get('name', '')
+            
+            # Chercher ou creer l'utilisateur
+            user, created = User.objects.get_or_create(
+                email=email,
+                defaults={
+                    'username': email.split('@')[0],
+                    'nom_cli': name,
+                }
+            )
+            
+            # Generer les tokens JWT
+            refresh = RefreshToken.for_user(user)
+            
+            return Response({
+                'message': 'Connexion reussie',
+                'user': {
+                    'id': user.id,
+                    'username': user.username,
+                    'email': user.email,
+                    'nom_cli': user.nom_cli,
+                },
+                'tokens': {
+                    'access': str(refresh.access_token),
+                    'refresh': str(refresh)
+                }
+            })
+            
+        except ValueError as e:
+            return Response({'error': f'Token invalide: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)

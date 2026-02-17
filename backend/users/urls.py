@@ -16,4 +16,5 @@ urlpatterns = [
     # Google OAuth
     path('google/login/', views.GoogleLoginView.as_view(), name='google-login'),
     path('google/callback/', views.GoogleCallbackView.as_view(), name='google-callback'),
+    path('google/auth/', views.GoogleAuthView.as_view(), name='google-auth'),
 ]
