@@ -6,235 +6,170 @@
 {% block extrastyle %}
 {{ block.super }}
 <style>
-    .dashboard-header {
+    /* Header compact horizontal */
+    .dash-header {
         background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-        border-radius: 16px;
-        padding: 32px;
-        margin-bottom: 24px;
+        border-radius: 12px;
+        padding: 16px 24px;
+        margin-bottom: 16px;
         color: white;
-    }
-    .dashboard-header h2 {
-        margin: 0;
-        font-size: 28px;
-        font-weight: 700;
-    }
-    .dashboard-header p {
-        margin: 8px 0 0 0;
-        opacity: 0.9;
-        font-size: 16px;
-    }
-    
-    .quick-actions {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-        margin-bottom: 32px;
-    }
-    .action-card {
-        background: white;
-        border-radius: 12px;
-        padding: 24px;
-        text-align: center;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        border: 1px solid #e5e7eb;
-        display: block;
-    }
-    .action-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        border-color: #4f46e5;
-    }
-    .action-card i {
-        font-size: 36px;
-        margin-bottom: 12px;
-        display: block;
-    }
-    .action-card h4 {
-        margin: 0 0 4px 0;
-        color: #111827;
-        font-size: 15px;
-        font-weight: 600;
-    }
-    .action-card p {
-        margin: 0;
-        color: #6b7280;
-        font-size: 13px;
-    }
-    
-    .section-title {
-        font-size: 18px;
-        font-weight: 600;
-        color: #374151;
-        margin: 0 0 16px 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    .section-title i {
-        color: #6b7280;
-    }
-    
-    .guide-box {
-        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-        border-left: 4px solid #10b981;
-        border-radius: 12px;
-        padding: 20px 24px;
-        margin-bottom: 32px;
-    }
-    .guide-box h4 {
-        color: #065f46;
-        margin: 0 0 16px 0;
-        font-size: 16px;
-    }
-    .guide-steps {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-    }
-    .guide-step {
-        color: #047857;
-        font-size: 14px;
-    }
-    .guide-step strong {
-        display: block;
-        margin-bottom: 4px;
-    }
-    
-    .apps-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 20px;
-    }
-    .app-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid #e5e7eb;
-    }
-    .app-card-header {
-        background: #f8fafc;
-        padding: 16px 20px;
-        border-bottom: 1px solid #e5e7eb;
-    }
-    .app-card-header h5 {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 600;
-        color: #1f2937;
-    }
-    .app-card-header i {
-        color: #4f46e5;
-        margin-right: 8px;
-    }
-    .model-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .model-item {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 14px 20px;
-        border-bottom: 1px solid #f3f4f6;
     }
-    .model-item:last-child {
-        border-bottom: none;
+    .dash-header h2 { margin: 0; font-size: 20px; font-weight: 600; }
+    .dash-header p { margin: 0; opacity: 0.9; font-size: 14px; }
+    
+    /* Actions en ligne horizontale */
+    .quick-row {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
     }
-    .model-item a.model-link {
-        color: #374151;
+    .quick-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 10px 16px;
         text-decoration: none;
+        color: #374151;
+        font-size: 14px;
         font-weight: 500;
+        transition: all 0.15s;
     }
-    .model-item a.model-link:hover {
+    .quick-btn:hover {
+        border-color: #4f46e5;
+        background: #f5f3ff;
         color: #4f46e5;
     }
-    .model-item .add-btn {
+    .quick-btn i { font-size: 16px; }
+    
+    /* Guide en une ligne */
+    .guide-inline {
+        background: #ecfdf5;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: #047857;
+    }
+    .guide-inline i { color: #10b981; }
+    .guide-inline span { display: flex; align-items: center; gap: 6px; }
+    
+    /* Grille apps horizontale */
+    .apps-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .app-box {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        flex: 1;
+        min-width: 280px;
+        max-width: 400px;
+    }
+    .app-box-head {
+        background: #f8fafc;
+        padding: 10px 14px;
+        border-bottom: 1px solid #e5e7eb;
+        font-weight: 600;
+        font-size: 14px;
+        color: #1f2937;
+    }
+    .app-box-head i { color: #4f46e5; margin-right: 6px; }
+    .model-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 14px;
+        border-bottom: 1px solid #f3f4f6;
+    }
+    .model-row:last-child { border-bottom: none; }
+    .model-row a.m-link {
+        color: #374151;
+        text-decoration: none;
+        font-size: 13px;
+    }
+    .model-row a.m-link:hover { color: #4f46e5; }
+    .model-row .add-sm {
         background: #10b981;
         color: white;
-        padding: 6px 14px;
-        border-radius: 6px;
-        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 11px;
         text-decoration: none;
-        font-weight: 500;
     }
-    .model-item .add-btn:hover {
-        background: #059669;
-    }
+    .model-row .add-sm:hover { background: #059669; }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="dashboard-header">
-    <h2><i class="fas fa-user-circle"></i> Bonjour {{ request.user.username }} !</h2>
-    <p>Bienvenue sur votre espace de gestion TECHSTORE</p>
-</div>
-
-<h3 class="section-title"><i class="fas fa-bolt"></i> Actions rapides</h3>
-<div class="quick-actions">
-    <a href="/admin/produits/product/add/" class="action-card">
-        <i class="fas fa-mobile-alt" style="color: #4f46e5;"></i>
-        <h4>Ajouter un produit</h4>
-        <p>Nouveau telephone</p>
-    </a>
-    <a href="/admin/orders/order/?status__exact=pending" class="action-card">
-        <i class="fas fa-clock" style="color: #f59e0b;"></i>
-        <h4>Commandes en attente</h4>
-        <p>A traiter</p>
-    </a>
-    <a href="/admin/produits/product/?stock__lte=5" class="action-card">
-        <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
-        <h4>Stock faible</h4>
-        <p>A reapprovisionner</p>
-    </a>
-    <a href="/admin/home/banner/" class="action-card">
-        <i class="fas fa-image" style="color: #8b5cf6;"></i>
-        <h4>Bannieres</h4>
-        <p>Images du site</p>
-    </a>
-</div>
-
-<div class="guide-box">
-    <h4><i class="fas fa-lightbulb"></i> Guide rapide</h4>
-    <div class="guide-steps">
-        <div class="guide-step">
-            <strong>1. Ajouter un produit</strong>
-            Cliquez sur "Ajouter un produit", remplissez le nom, le prix et ajoutez des photos.
-        </div>
-        <div class="guide-step">
-            <strong>2. Gerer les commandes</strong>
-            Allez dans "Commandes" pour voir et traiter les nouvelles commandes.
-        </div>
-        <div class="guide-step">
-            <strong>3. Mettre en promotion</strong>
-            Selectionnez des produits et utilisez l'action "Activer la promotion".
-        </div>
+<!-- Header compact -->
+<div class="dash-header">
+    <div>
+        <h2><i class="fas fa-store"></i> TECHSTORE Admin</h2>
     </div>
+    <p>Bonjour {{ request.user.username }} !</p>
 </div>
 
-<h3 class="section-title"><i class="fas fa-th-large"></i> Gestion du site</h3>
-<div class="apps-grid">
+<!-- Actions rapides en ligne -->
+<div class="quick-row">
+    <a href="/admin/produits/product/add/" class="quick-btn">
+        <i class="fas fa-plus" style="color: #4f46e5;"></i> Nouveau produit
+    </a>
+    <a href="/admin/orders/order/?status__exact=pending" class="quick-btn">
+        <i class="fas fa-clock" style="color: #f59e0b;"></i> Commandes en attente
+    </a>
+    <a href="/admin/produits/product/?stock__lte=5" class="quick-btn">
+        <i class="fas fa-exclamation-circle" style="color: #ef4444;"></i> Stock faible
+    </a>
+    <a href="/admin/home/banner/" class="quick-btn">
+        <i class="fas fa-image" style="color: #8b5cf6;"></i> Bannieres
+    </a>
+    <a href="/admin/home/announcement/" class="quick-btn">
+        <i class="fas fa-bullhorn" style="color: #10b981;"></i> Annonces
+    </a>
+    <a href="/admin/orders/order/" class="quick-btn">
+        <i class="fas fa-list" style="color: #6b7280;"></i> Toutes les commandes
+    </a>
+</div>
+
+<!-- Guide compact -->
+<div class="guide-inline">
+    <span><i class="fas fa-lightbulb"></i> <strong>Astuce:</strong></span>
+    <span>1. Ajoutez des produits</span>
+    <span>2. Gerez les commandes</span>
+    <span>3. Activez les promotions</span>
+</div>
+
+<!-- Apps en grille horizontale -->
+<div class="apps-row">
 {% if app_list %}
     {% for app in app_list %}
-    <div class="app-card">
-        <div class="app-card-header">
-            <h5><i class="fas fa-folder"></i> {{ app.name }}</h5>
+    <div class="app-box">
+        <div class="app-box-head"><i class="fas fa-folder"></i> {{ app.name }}</div>
+        {% for model in app.models %}
+        <div class="model-row">
+            {% if model.admin_url %}
+            <a href="{{ model.admin_url }}" class="m-link">{{ model.name }}</a>
+            {% else %}
+            <span>{{ model.name }}</span>
+            {% endif %}
+            {% if model.add_url %}
+            <a href="{{ model.add_url }}" class="add-sm">+ Ajouter</a>
+            {% endif %}
         </div>
-        <ul class="model-list">
-            {% for model in app.models %}
-            <li class="model-item">
-                {% if model.admin_url %}
-                <a href="{{ model.admin_url }}" class="model-link">{{ model.name }}</a>
-                {% else %}
-                <span>{{ model.name }}</span>
-                {% endif %}
-                {% if model.add_url %}
-                <a href="{{ model.add_url }}" class="add-btn">+ Ajouter</a>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
+        {% endfor %}
     </div>
     {% endfor %}
 {% else %}
