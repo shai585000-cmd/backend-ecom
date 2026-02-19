@@ -20,7 +20,7 @@ if READ_DOT_ENV_FILE:
 DEBUG = env.bool("DJANGO_DEBUG", False)
 
 TIME_ZONE = "GMT"
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "fr-fr"
 
 SITE_ID = 1
 USE_I18N = True
@@ -388,12 +388,12 @@ JAZZMIN_SETTINGS = {
     "copyright": "TECHSTORE - Votre boutique en ligne",
     "user_avatar": None,
     
-    # Liens du menu supérieur - simplifiés
+    # Liens du menu superieur
     "topmenu_links": [
-        {"name": "Accueil", "url": "admin:index", "icon": "fas fa-home"},
-        {"name": "Produits", "url": "admin:backend_produits_product_changelist", "icon": "fas fa-mobile-alt"},
-        {"name": "Commandes", "url": "admin:backend_orders_order_changelist", "icon": "fas fa-shopping-cart"},
-        {"name": "Voir le site", "url": "https://frontend-ecom-weld.vercel.app/", "new_window": True, "icon": "fas fa-external-link-alt"},
+        {"name": "Accueil", "url": "admin:index"},
+        {"name": "Produits", "url": "/admin/produits/product/"},
+        {"name": "Commandes", "url": "/admin/orders/order/"},
+        {"name": "Voir le site", "url": "https://frontend-ecom-weld.vercel.app/", "new_window": True},
     ],
     
     "show_sidebar": True,
