@@ -156,7 +156,7 @@ class ProductAdmin(admin.ModelAdmin):
     product_stats.short_description = "Statistiques"
     
     # Actions en masse
-    @admin.action(description="⭐ Mettre en vedette")
+    @admin.action(description="Mettre en vedette")
     def mark_featured(self, request, queryset):
         updated = queryset.update(is_featured=True)
         self.message_user(request, f"{updated} produit(s) mis en vedette.")
@@ -166,7 +166,7 @@ class ProductAdmin(admin.ModelAdmin):
         updated = queryset.update(is_featured=False)
         self.message_user(request, f"{updated} produit(s) retiré(s) de la vedette.")
     
-    @admin.action(description="🏷️ Activer la promotion")
+    @admin.action(description="Activer la promotion")
     def activate_promotion(self, request, queryset):
         updated = queryset.update(promotion=True)
         self.message_user(request, f"Promotion activée pour {updated} produit(s). N'oubliez pas de définir le prix promo!")
@@ -176,7 +176,7 @@ class ProductAdmin(admin.ModelAdmin):
         updated = queryset.update(promotion=False)
         self.message_user(request, f"Promotion désactivée pour {updated} produit(s).")
     
-    @admin.action(description="📋 Dupliquer les produits")
+    @admin.action(description="Dupliquer les produits")
     def duplicate_products(self, request, queryset):
         for product in queryset:
             product.pk = None
@@ -185,33 +185,33 @@ class ProductAdmin(admin.ModelAdmin):
         self.message_user(request, f"{queryset.count()} produit(s) dupliqué(s).")
     
     fieldsets = (
-        ('📷 Images du produit', {
+        ('Images du produit', {
             'fields': ('image_preview_large', 'image', 'image_2', 'image_3', 'image_4'),
             'description': 'Ajoutez jusqu\'à 4 photos de votre produit. La première image sera l\'image principale.'
         }),
-        ('📱 Informations principales', {
+        ('Informations principales', {
             'fields': ('name', 'model_name', 'brand', 'categorie', 'description'),
             'description': 'Remplissez les informations de base du produit.'
         }),
-        ('💰 Prix et Stock', {
+        ('Prix et Stock', {
             'fields': ('price', 'stock', 'promotion', 'promotion_price', 'is_featured'),
             'description': 'Définissez le prix et la quantité disponible.'
         }),
-        ('📋 Caractéristiques', {
+        ('Caractéristiques', {
             'fields': ('condition', 'color', 'dual_sim'),
             'classes': ('collapse',),
             'description': 'État et couleur du produit.'
         }),
-        ('⚙️ Spécifications techniques', {
+        ('Spécifications techniques', {
             'fields': ('ram', 'storage', 'screen_size', 'battery_capacity', 'operating_system', 'network'),
             'classes': ('collapse',),
             'description': 'Détails techniques (optionnel).'
         }),
-        ('📸 Caméra', {
+        ('Caméra', {
             'fields': ('main_camera', 'front_camera'),
             'classes': ('collapse',),
         }),
-        ('📊 Statistiques', {
+        ('Statistiques', {
             'fields': ('product_stats', 'user'),
             'classes': ('collapse',),
         }),

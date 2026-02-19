@@ -390,10 +390,10 @@ JAZZMIN_SETTINGS = {
     
     # Liens du menu supérieur - simplifiés
     "topmenu_links": [
-        {"name": "🏠 Accueil", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "📦 Produits", "url": "admin:produits_product_changelist"},
-        {"name": "🛒 Commandes", "url": "admin:orders_order_changelist"},
-        {"name": "🌐 Voir le site", "url": "/", "new_window": True},
+        {"name": "Accueil", "url": "admin:index", "icon": "fas fa-home"},
+        {"name": "Produits", "url": "admin:backend_produits_product_changelist", "icon": "fas fa-mobile-alt"},
+        {"name": "Commandes", "url": "admin:backend_orders_order_changelist", "icon": "fas fa-shopping-cart"},
+        {"name": "Voir le site", "url": "https://frontend-ecom-weld.vercel.app/", "new_window": True, "icon": "fas fa-external-link-alt"},
     ],
     
     "show_sidebar": True,

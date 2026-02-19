@@ -12,11 +12,11 @@ class BannerAdmin(admin.ModelAdmin):
     list_per_page = 10
     
     fieldsets = (
-        ('🖼️ Image de la bannière', {
+        ('Image de la bannière', {
             'fields': ('image', 'image_preview_large'),
             'description': 'Téléchargez une image pour la bannière du site. Taille recommandée: 1920x600 pixels.'
         }),
-        ('📝 Informations', {
+        ('Informations', {
             'fields': ('title', 'link'),
             'description': 'Le titre est optionnel. Le lien permet de rediriger vers une page quand on clique sur la bannière.'
         }),
@@ -65,7 +65,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_per_page = 20
     
     fieldsets = (
-        ('📂 Informations de la catégorie', {
+        ('Informations de la catégorie', {
             'fields': ('name', 'description'),
             'description': 'Créez des catégories pour organiser vos produits (ex: Smartphones, Accessoires, etc.)'
         }),
@@ -104,7 +104,7 @@ class AnnouncementAdmin(admin.ModelAdmin):
     list_per_page = 20
     
     fieldsets = (
-        ('📢 Annonce', {
+        ('Annonce', {
             'fields': ('emoji', 'text', 'is_active', 'order'),
             'description': 'Créez des annonces qui s\'affichent en haut du site (ex: promotions, nouveautés, etc.)'
         }),

@@ -9,7 +9,7 @@
         <div class="col-12">
             <div class="card bg-gradient-primary">
                 <div class="card-body" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 12px; padding: 30px;">
-                    <h2 style="color: white; margin: 0; font-size: 28px;">👋 Bonjour {{ request.user.username }} !</h2>
+                    <h2 style="color: white; margin: 0; font-size: 28px;"><i class="fas fa-hand-wave mr-2"></i> Bonjour {{ request.user.username }} !</h2>
                     <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">
                         Bienvenue sur votre espace de gestion TECHSTORE
                     </p>
@@ -21,13 +21,13 @@
     <!-- Actions rapides -->
     <div class="row mb-4">
         <div class="col-12">
-            <h4 style="color: #374151; font-weight: 600; margin-bottom: 16px;">⚡ Actions rapides</h4>
+            <h4 style="color: #374151; font-weight: 600; margin-bottom: 16px;"><i class="fas fa-bolt mr-2" style="color: #f59e0b;"></i> Actions rapides</h4>
         </div>
         <div class="col-md-3 col-sm-6">
-            <a href="{% url 'admin:produits_product_add' %}" style="text-decoration: none;">
+            <a href="{% url 'admin:backend_produits_product_add' %}" style="text-decoration: none;">
                 <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
                     <div class="card-body text-center" style="padding: 25px;">
-                        <div style="font-size: 40px; margin-bottom: 10px;">📱</div>
+                        <div style="font-size: 40px; margin-bottom: 10px; color: #4f46e5;"><i class="fas fa-mobile-alt"></i></div>
                         <h5 style="color: #111827; font-weight: 600; margin: 0;">Ajouter un produit</h5>
                         <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">Nouveau téléphone</p>
                     </div>
@@ -35,10 +35,10 @@
             </a>
         </div>
         <div class="col-md-3 col-sm-6">
-            <a href="{% url 'admin:orders_order_changelist' %}?status__exact=pending" style="text-decoration: none;">
+            <a href="{% url 'admin:backend_orders_order_changelist' %}?status__exact=pending" style="text-decoration: none;">
                 <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
                     <div class="card-body text-center" style="padding: 25px;">
-                        <div style="font-size: 40px; margin-bottom: 10px;">🛒</div>
+                        <div style="font-size: 40px; margin-bottom: 10px; color: #10b981;"><i class="fas fa-shopping-cart"></i></div>
                         <h5 style="color: #111827; font-weight: 600; margin: 0;">Commandes en attente</h5>
                         <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">À traiter</p>
                     </div>
@@ -46,10 +46,10 @@
             </a>
         </div>
         <div class="col-md-3 col-sm-6">
-            <a href="{% url 'admin:produits_product_changelist' %}?stock__exact=0" style="text-decoration: none;">
+            <a href="{% url 'admin:backend_produits_product_changelist' %}?stock__exact=0" style="text-decoration: none;">
                 <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
                     <div class="card-body text-center" style="padding: 25px;">
-                        <div style="font-size: 40px; margin-bottom: 10px;">⚠️</div>
+                        <div style="font-size: 40px; margin-bottom: 10px; color: #ef4444;"><i class="fas fa-exclamation-triangle"></i></div>
                         <h5 style="color: #111827; font-weight: 600; margin: 0;">Rupture de stock</h5>
                         <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">Produits à réapprovisionner</p>
                     </div>
@@ -57,10 +57,10 @@
             </a>
         </div>
         <div class="col-md-3 col-sm-6">
-            <a href="{% url 'admin:home_banner_changelist' %}" style="text-decoration: none;">
+            <a href="{% url 'admin:backend_home_banner_changelist' %}" style="text-decoration: none;">
                 <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
                     <div class="card-body text-center" style="padding: 25px;">
-                        <div style="font-size: 40px; margin-bottom: 10px;">🖼️</div>
+                        <div style="font-size: 40px; margin-bottom: 10px; color: #8b5cf6;"><i class="fas fa-image"></i></div>
                         <h5 style="color: #111827; font-weight: 600; margin: 0;">Gérer les bannières</h5>
                         <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">Images du site</p>
                     </div>
@@ -74,7 +74,7 @@
         <div class="col-12">
             <div class="card" style="border: none; border-radius: 12px; background: #f0fdf4; border-left: 4px solid #10b981;">
                 <div class="card-body" style="padding: 20px;">
-                    <h5 style="color: #065f46; font-weight: 600; margin: 0 0 12px 0;">📖 Guide rapide</h5>
+                    <h5 style="color: #065f46; font-weight: 600; margin: 0 0 12px 0;"><i class="fas fa-book mr-2"></i> Guide rapide</h5>
                     <div class="row">
                         <div class="col-md-4">
                             <p style="color: #047857; margin: 0; font-size: 14px;">
@@ -103,7 +103,7 @@
     <!-- Liste des applications -->
     <div class="row">
         <div class="col-12">
-            <h4 style="color: #374151; font-weight: 600; margin-bottom: 16px;">📂 Gestion du site</h4>
+            <h4 style="color: #374151; font-weight: 600; margin-bottom: 16px;"><i class="fas fa-folder-open mr-2" style="color: #6b7280;"></i> Gestion du site</h4>
         </div>
         {% for app in dashboard_list %}
         <div class="col-md-6 col-lg-4 mb-4">
