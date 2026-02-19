@@ -15,3 +15,357 @@ footer a[href*="github.com/farridav/django-jazzmin"] {
 .main-footer .text-muted {
     display: none !important;
 }
+
+/* ========================================
+   INTERFACE ADMIN SIMPLIFIÉE POUR CLIENT
+   ======================================== */
+
+/* Police plus grande et lisible */
+body {
+    font-size: 15px !important;
+}
+
+/* Titres de page plus grands */
+.content-header h1 {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+}
+
+/* Boutons plus grands et visibles */
+.btn {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+}
+
+.btn-primary, .btn-success {
+    background: #4f46e5 !important;
+    border-color: #4f46e5 !important;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    background: #4338ca !important;
+    border-color: #4338ca !important;
+}
+
+/* Bouton Ajouter plus visible */
+.btn-outline-primary {
+    background: #10b981 !important;
+    border-color: #10b981 !important;
+    color: white !important;
+}
+
+.btn-outline-primary:hover {
+    background: #059669 !important;
+    border-color: #059669 !important;
+}
+
+/* Cards du dashboard */
+.small-box {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s ease !important;
+}
+
+.small-box:hover {
+    transform: translateY(-2px) !important;
+}
+
+.small-box h3 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+}
+
+.small-box p {
+    font-size: 16px !important;
+}
+
+/* Tableau de données */
+.table {
+    font-size: 14px !important;
+}
+
+.table th {
+    background: #f8fafc !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+    color: #6b7280 !important;
+    padding: 15px 12px !important;
+}
+
+.table td {
+    padding: 15px 12px !important;
+    vertical-align: middle !important;
+}
+
+.table tbody tr:hover {
+    background: #f8fafc !important;
+}
+
+/* Formulaires plus grands */
+.form-control {
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    border-radius: 8px !important;
+    border: 2px solid #e5e7eb !important;
+}
+
+.form-control:focus {
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
+}
+
+/* Labels plus visibles */
+label {
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+}
+
+/* Fieldsets avec style moderne */
+fieldset {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+fieldset legend,
+fieldset h2 {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    padding: 0 10px !important;
+}
+
+/* Sidebar plus claire */
+.sidebar-dark-indigo {
+    background: #1e293b !important;
+}
+
+.nav-sidebar .nav-link {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    margin: 4px 8px !important;
+}
+
+.nav-sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-sidebar .nav-link.active {
+    background: #4f46e5 !important;
+}
+
+/* Icônes de navigation plus grandes */
+.nav-sidebar .nav-icon {
+    font-size: 18px !important;
+    margin-right: 12px !important;
+}
+
+/* Messages de succès/erreur */
+.alert {
+    border-radius: 10px !important;
+    padding: 16px 20px !important;
+    font-size: 15px !important;
+    border: none !important;
+}
+
+.alert-success {
+    background: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.alert-danger {
+    background: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.alert-warning {
+    background: #fef3c7 !important;
+    color: #92400e !important;
+}
+
+/* Pagination plus grande */
+.pagination .page-link {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+}
+
+/* Checkbox et radio plus grands */
+input[type="checkbox"],
+input[type="radio"] {
+    width: 20px !important;
+    height: 20px !important;
+    cursor: pointer !important;
+}
+
+/* Select dropdown */
+select.form-control {
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+}
+
+/* Actions dropdown */
+.actions select {
+    min-width: 250px !important;
+    font-size: 14px !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 14px !important;
+    padding: 12px 0 !important;
+}
+
+/* Help text plus visible */
+.help-block,
+.helptext {
+    color: #6b7280 !important;
+    font-size: 13px !important;
+    margin-top: 6px !important;
+    font-style: italic !important;
+}
+
+/* Card header */
+.card-header {
+    background: #f8fafc !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    padding: 16px 20px !important;
+}
+
+.card-header h3 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+
+/* Bouton de sauvegarde très visible */
+input[type="submit"],
+button[type="submit"] {
+    background: #10b981 !important;
+    border-color: #10b981 !important;
+    color: white !important;
+    padding: 14px 28px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background: #059669 !important;
+    border-color: #059669 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Bouton supprimer en rouge */
+.deletelink,
+a.deletelink {
+    background: #ef4444 !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+}
+
+/* Zone de recherche */
+#searchbar {
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    border-radius: 10px !important;
+    border: 2px solid #e5e7eb !important;
+    min-width: 300px !important;
+}
+
+/* Filtres latéraux */
+#changelist-filter {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+#changelist-filter h2,
+#changelist-filter h3 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-bottom: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+#changelist-filter ul {
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+#changelist-filter li {
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    margin-bottom: 4px !important;
+}
+
+#changelist-filter li:hover {
+    background: #f3f4f6 !important;
+}
+
+#changelist-filter li.selected {
+    background: #e0e7ff !important;
+}
+
+#changelist-filter li.selected a {
+    color: #4f46e5 !important;
+    font-weight: 600 !important;
+}
+
+/* Masquer les éléments techniques complexes */
+.object-tools {
+    margin-bottom: 20px !important;
+}
+
+/* Style pour les inline (OrderItems, etc.) */
+.inline-group {
+    background: #f8fafc !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    margin-top: 20px !important;
+}
+
+.inline-group h2 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-bottom: 16px !important;
+}
+
+/* Animation de chargement */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Responsive pour tablettes */
+@media (max-width: 992px) {
+    .content-header h1 {
+        font-size: 22px !important;
+    }
+    
+    .table {
+        font-size: 13px !important;
+    }
+    
+    .btn {
+        padding: 8px 16px !important;
+    }
+}

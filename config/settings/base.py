@@ -378,54 +378,118 @@ SIMPLE_JWT = {
 
 JAZZMIN_SETTINGS = {
     "site_title": "TECHSTORE",
-    "site_header": "TECHSTORE Admin",
+    "site_header": "TECHSTORE",
     "site_brand": "TECHSTORE",
-
-    "welcome_sign": "Bienvenue sur TECHSTORE",
-    "copyright": "TECHSTORE",
-    "user_avatar": "images/photos/logo.jpg",
+    "site_logo": None,
+    "login_logo": None,
+    "site_logo_classes": "img-circle",
+    
+    "welcome_sign": "Bienvenue sur votre espace de gestion",
+    "copyright": "TECHSTORE - Votre boutique en ligne",
+    "user_avatar": None,
+    
+    # Liens du menu supérieur - simplifiés
     "topmenu_links": [
-        {"name": "Dashboard", "url": "home", "permissions": ["auth.view_user"]},
-        {"model": "auth.User"},
+        {"name": "🏠 Accueil", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "📦 Produits", "url": "admin:produits_product_changelist"},
+        {"name": "🛒 Commandes", "url": "admin:orders_order_changelist"},
+        {"name": "🌐 Voir le site", "url": "/", "new_window": True},
     ],
+    
     "show_sidebar": True,
     "navigation_expanded": True,
+    
+    # Ordre des applications dans le menu - les plus importantes en premier
     "order_with_respect_to": [
-        "api",
-        "api.Post",
-        "api.Category",
-        "api.Comment",
-        "api.Bookmark",
-        "api.Notification",
+        "produits",
+        "orders",
+        "home",
+        "users",
+        "reviews",
+        "shipping",
     ],
+    
+    # Icônes claires et intuitives
     "icons": {
-        "admin.LogEntry": "fas fa-file",
-
+        "admin.LogEntry": "fas fa-history",
+        
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
-
-        "api.User": "fas fa-user",
-        "api.Profile":"fas fa-address-card",
-        "api.Post":"fas fa-th",
-        "api.Category":"fas fa-tag",
-        "api.Comment":"fas fa-envelope",
-        "api.Notification":"fas fa-bell",
-        "api.Bookmark":"fas fa-heart",
-
+        "auth.Group": "fas fa-users",
         
+        # Produits
+        "produits": "fas fa-mobile-alt",
+        "produits.Product": "fas fa-mobile-alt",
+        "produits.Brand": "fas fa-tag",
+        
+        # Commandes
+        "orders": "fas fa-shopping-cart",
+        "orders.Order": "fas fa-shopping-cart",
+        "orders.OrderItem": "fas fa-list",
+        
+        # Accueil/Site
+        "home": "fas fa-home",
+        "home.Banner": "fas fa-image",
+        "home.Category": "fas fa-folder",
+        "home.Announcement": "fas fa-bullhorn",
+        
+        # Utilisateurs
+        "users": "fas fa-users",
+        "users.User": "fas fa-user",
+        
+        # Avis
+        "reviews": "fas fa-star",
+        "reviews.Review": "fas fa-star",
+        
+        # Livraison
+        "shipping": "fas fa-truck",
+        "shipping.ShippingZone": "fas fa-map-marker-alt",
+        
+        # Panier
+        "cart": "fas fa-shopping-basket",
+        "cart.Cart": "fas fa-shopping-basket",
+        
+        # Wishlist
+        "wishlist": "fas fa-heart",
+        "wishlist.Wishlist": "fas fa-heart",
+        
+        # Paiements
+        "payments": "fas fa-credit-card",
+        "payments.Payment": "fas fa-credit-card",
     },
-    "default_icon_parents": "fas fa-chevron-circle-right",
-    "default_icon_children": "fas fa-arrow-circle-right",
-    "related_modal_active": False,
+    
+    "default_icon_parents": "fas fa-folder-open",
+    "default_icon_children": "fas fa-circle",
+    
+    "related_modal_active": True,
     
     "custom_js": None,
-    "show_ui_builder": True,
+    "show_ui_builder": False,  # Cacher pour le client
     
     "changeform_format": "horizontal_tabs",
     "changeform_format_overrides": {
         "auth.user": "collapsible",
         "auth.group": "vertical_tabs",
+        "produits.product": "horizontal_tabs",
+        "orders.order": "horizontal_tabs",
     },
+    
+    # Masquer certains modèles techniques pour le client
+    "hide_apps": [],
+    "hide_models": [
+        "auth.Group",
+        "socialaccount.SocialAccount",
+        "socialaccount.SocialToken",
+        "socialaccount.SocialApp",
+        "account.EmailAddress",
+        "sites.Site",
+    ],
+    
+    # Personnalisation des noms d'apps pour plus de clarté
+    "custom_links": {},
+    
+    # Recherche globale
+    "search_model": ["produits.Product", "orders.Order", "users.User"],
 }
 
 

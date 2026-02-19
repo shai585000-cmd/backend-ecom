@@ -1,0 +1,152 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static jazzmin %}
+{% get_side_menu using="app_list" as dashboard_list %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Message de bienvenue -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-gradient-primary">
+                <div class="card-body" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 12px; padding: 30px;">
+                    <h2 style="color: white; margin: 0; font-size: 28px;">👋 Bonjour {{ request.user.username }} !</h2>
+                    <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">
+                        Bienvenue sur votre espace de gestion TECHSTORE
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actions rapides -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4 style="color: #374151; font-weight: 600; margin-bottom: 16px;">⚡ Actions rapides</h4>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="{% url 'admin:produits_product_add' %}" style="text-decoration: none;">
+                <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
+                    <div class="card-body text-center" style="padding: 25px;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">📱</div>
+                        <h5 style="color: #111827; font-weight: 600; margin: 0;">Ajouter un produit</h5>
+                        <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">Nouveau téléphone</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="{% url 'admin:orders_order_changelist' %}?status__exact=pending" style="text-decoration: none;">
+                <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
+                    <div class="card-body text-center" style="padding: 25px;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">🛒</div>
+                        <h5 style="color: #111827; font-weight: 600; margin: 0;">Commandes en attente</h5>
+                        <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">À traiter</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="{% url 'admin:produits_product_changelist' %}?stock__exact=0" style="text-decoration: none;">
+                <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
+                    <div class="card-body text-center" style="padding: 25px;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">⚠️</div>
+                        <h5 style="color: #111827; font-weight: 600; margin: 0;">Rupture de stock</h5>
+                        <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">Produits à réapprovisionner</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="{% url 'admin:home_banner_changelist' %}" style="text-decoration: none;">
+                <div class="card" style="border: none; border-radius: 12px; transition: transform 0.2s; cursor: pointer;">
+                    <div class="card-body text-center" style="padding: 25px;">
+                        <div style="font-size: 40px; margin-bottom: 10px;">🖼️</div>
+                        <h5 style="color: #111827; font-weight: 600; margin: 0;">Gérer les bannières</h5>
+                        <p style="color: #6b7280; font-size: 13px; margin: 8px 0 0 0;">Images du site</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Guide rapide -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card" style="border: none; border-radius: 12px; background: #f0fdf4; border-left: 4px solid #10b981;">
+                <div class="card-body" style="padding: 20px;">
+                    <h5 style="color: #065f46; font-weight: 600; margin: 0 0 12px 0;">📖 Guide rapide</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p style="color: #047857; margin: 0; font-size: 14px;">
+                                <strong>1. Ajouter un produit</strong><br>
+                                Cliquez sur "Ajouter un produit", remplissez le nom, le prix et ajoutez des photos.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p style="color: #047857; margin: 0; font-size: 14px;">
+                                <strong>2. Gérer les commandes</strong><br>
+                                Allez dans "Commandes" pour voir et traiter les nouvelles commandes.
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p style="color: #047857; margin: 0; font-size: 14px;">
+                                <strong>3. Mettre en promotion</strong><br>
+                                Sélectionnez des produits et utilisez l'action "Activer la promotion".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Liste des applications -->
+    <div class="row">
+        <div class="col-12">
+            <h4 style="color: #374151; font-weight: 600; margin-bottom: 16px;">📂 Gestion du site</h4>
+        </div>
+        {% for app in dashboard_list %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card" style="border: none; border-radius: 12px; height: 100%;">
+                <div class="card-header" style="background: #f8fafc; border-bottom: 1px solid #e5e7eb; border-radius: 12px 12px 0 0; padding: 16px 20px;">
+                    <h5 style="margin: 0; font-weight: 600; color: #1f2937;">
+                        <i class="{{ app.icon }} mr-2" style="color: #4f46e5;"></i>
+                        {{ app.name }}
+                    </h5>
+                </div>
+                <div class="card-body" style="padding: 0;">
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        {% for model in app.models %}
+                        <li style="border-bottom: 1px solid #f3f4f6;">
+                            <a href="{{ model.admin_url }}" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; text-decoration: none; color: #374151; transition: background 0.2s;">
+                                <span>
+                                    <i class="{{ model.icon }} mr-2" style="color: #6b7280;"></i>
+                                    {{ model.name }}
+                                </span>
+                                {% if model.add_url %}
+                                <a href="{{ model.add_url }}" style="background: #10b981; color: white; padding: 4px 12px; border-radius: 6px; font-size: 12px; text-decoration: none;">
+                                    + Ajouter
+                                </a>
+                                {% endif %}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .card-body ul li a:hover {
+        background: #f8fafc;
+    }
+</style>
+{% endblock %}
