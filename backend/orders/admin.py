@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.utils.html import format_html
 from django.db.models import Sum, Count
 from django.utils import timezone
-from datetime import timedelta
+from datetime import datetime, timedelta
 from .models import Order, OrderItem
 
 
@@ -65,7 +65,7 @@ class OrderAdmin(admin.ModelAdmin):
         
         # Statistiques du jour
         today = timezone.now().date()
-        today_start = timezone.make_aware(timezone.datetime.combine(today, timezone.datetime.min.time()))
+        today_start = timezone.make_aware(datetime.combine(today, datetime.min.time()))
         today_orders = Order.objects.filter(created_at__gte=today_start).count()
         today_revenue = Order.objects.filter(
             created_at__gte=today_start,
@@ -99,13 +99,22 @@ class OrderAdmin(admin.ModelAdmin):
     
     def user_info(self, obj):
         """Affiche les infos utilisateur"""
+        if obj.user:
+            email = obj.user.email or ''
+            return format_html(
+                '<div style="line-height: 1.4;">'
+                '<strong>{}</strong><br/>'
+                '<span style="color: #6b7280; font-size: 11px;">{}</span>'
+                '</div>',
+                obj.user.username,
+                email[:25] + '...' if len(email) > 25 else email
+            )
         return format_html(
             '<div style="line-height: 1.4;">'
             '<strong>{}</strong><br/>'
-            '<span style="color: #6b7280; font-size: 11px;">{}</span>'
+            '<span style="color: #6b7280; font-size: 11px;">Invite</span>'
             '</div>',
-            obj.user.username,
-            obj.user.email[:25] + '...' if len(obj.user.email) > 25 else obj.user.email
+            obj.guest_name or 'Invite'
         )
     user_info.short_description = 'Client'
     user_info.admin_order_field = 'user__username'
