@@ -111,7 +111,7 @@ MarkupSafe==3.0.2
 matplotlib-inline==0.1.7
 mypy-extensions==1.0.0
 nodeenv==1.9.1
-packaging==24.2
+packaging==25.0
 parso==0.8.4
 pathspec==0.12.1
 platformdirs==4.3.6
