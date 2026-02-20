@@ -9,6 +9,10 @@ class Banner(models.Model):
     link = models.URLField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'Banniere'
+        verbose_name_plural = 'Bannieres'
+
     def __str__(self):
         return self.title
 
@@ -17,6 +21,10 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Categorie'
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.name
@@ -33,6 +41,8 @@ class Announcement(models.Model):
 
     class Meta:
         ordering = ['order', '-created_at']
+        verbose_name = 'Annonce'
+        verbose_name_plural = 'Annonces'
 
     def __str__(self):
         return f"{self.emoji} {self.text[:50]}..."

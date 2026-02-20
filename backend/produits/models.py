@@ -9,6 +9,10 @@ class Brand(models.Model):
     logo = models.ImageField(upload_to='brands/', blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
+    class Meta:
+        verbose_name = 'Marque'
+        verbose_name_plural = 'Marques'
+
     def __str__(self):
         return self.name
 
@@ -72,6 +76,8 @@ class Product(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+        verbose_name = 'Produit'
+        verbose_name_plural = 'Produits'
 
     def __str__(self):
         return self.name

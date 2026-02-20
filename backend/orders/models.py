@@ -29,6 +29,8 @@ class Order(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+        verbose_name = 'Commande'
+        verbose_name_plural = 'Commandes'
 
     def __str__(self):
         if self.user:
@@ -46,6 +48,10 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.product_name}"
+
+    class Meta:
+        verbose_name = 'Article commande'
+        verbose_name_plural = 'Articles commande'
 
     def save(self, *args, **kwargs):
         self.total_price = self.quantity * self.unit_price

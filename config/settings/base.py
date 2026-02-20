@@ -475,7 +475,19 @@ JAZZMIN_SETTINGS = {
     },
     
     # Masquer certains modèles techniques pour le client
-    "hide_apps": [],
+    "hide_apps": [
+        "cart",
+        "wishlist",
+        "authtoken",
+        "token_blacklist",
+        "otp_totp",
+        "otp_static",
+        "django_otp",
+        "allauth",
+        "socialaccount",
+        "account",
+        "sites",
+    ],
     "hide_models": [
         "auth.Group",
         "socialaccount.SocialAccount",
@@ -483,6 +495,15 @@ JAZZMIN_SETTINGS = {
         "socialaccount.SocialApp",
         "account.EmailAddress",
         "sites.Site",
+        "orders.OrderItem",
+        "cart.Cart",
+        "cart.CartItem",
+        "wishlist.Wishlist",
+        "wishlist.WishlistItem",
+        "authtoken.Token",
+        "authtoken.TokenProxy",
+        "token_blacklist.BlacklistedToken",
+        "token_blacklist.OutstandingToken",
     ],
     
     # Personnalisation des noms d'apps pour plus de clarté
