@@ -5,8 +5,8 @@ import django
 # Ajouter le dossier backend au path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-os.environ['DATABASE_URL'] = "postgresql://e_commerce_6c64_user:kahJ0huW9mo8LnCPemTsRLTkdkXm7CGT@dpg-d69c0n0gjchc73chbnk0-a.oregon-postgres.render.com/e_commerce_6c64"
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
+os.environ['DATABASE_URL'] = "postgresql://postgres:Offoange%4019@db.uluantlvcdxnphaartlz.supabase.co:5432/postgres"
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.base')
 django.setup()
 
 from django.contrib.auth import get_user_model
