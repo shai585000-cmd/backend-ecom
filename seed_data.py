@@ -5,7 +5,7 @@ import django
 # Ajouter le dossier backend au path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-os.environ['DATABASE_URL'] = "postgresql://postgres:Offoange%4019@db.cnnilqjdfkbidufnvnyn.supabase.co:5432/postgres"
+os.environ['DATABASE_URL'] = "postgresql://postgres:Offoange%4019@db.cnnilqjdfkbidufnvnyn.supabase.co:5432/postgres?sslmode=require"
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.base')
 django.setup()
 
@@ -24,7 +24,7 @@ if not User.objects.filter(nom_cli='admin').exists():
         username='admin',
         nom_cli='admin',
         email='admin@example.com',
-        password='admin123'
+        password='admin123',
     )
     print("   ✓ Admin créé (login: admin / password: admin123)")
 else:
