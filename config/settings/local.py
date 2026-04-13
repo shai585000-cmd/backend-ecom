@@ -16,15 +16,7 @@ SECRET_KEY = env(
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]  # noqa: S104
 
-# Configuration de la base de données
-DATABASES = {
-    'default': env.db('DATABASE_URL', 
-                     default='postgres://postgres:offoange@localhost:5432/postgres')
-}
-# Ajouter cette ligne pour déboguer
-print("DATABASE_URL:", env('DATABASE_URL', default='non trouvé'))
-
-
+# Configuration de la base de données - utilise la config de base.py (Supabase)
 # CACHES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#caches

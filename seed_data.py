@@ -5,7 +5,7 @@ import django
 # Ajouter le dossier backend au path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-os.environ['DATABASE_URL'] = "postgresql://postgres:Offoange%4019@db.uluantlvcdxnphaartlz.supabase.co:5432/postgres"
+os.environ['DATABASE_URL'] = "postgresql://postgres:Offoange%4019@db.cnnilqjdfkbidufnvnyn.supabase.co:5432/postgres"
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.base')
 django.setup()
 
