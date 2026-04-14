@@ -11,7 +11,7 @@ django.setup()
 
 from django.contrib.auth import get_user_model
 from backend.produits.models import Product, Brand
-from backend.home.models import Banner, Category, Announcement
+from backend.home.models import Banner, Category, Announcement, HeroSection, FeatureItem, SolutionCard
 
 User = get_user_model()
 
@@ -159,6 +159,77 @@ for ann_data in announcements_data:
     )
     if created:
         print(f"   ✓ Annonce créée: {ann_data['emoji']} {ann_data['text'][:40]}...")
+
+# 8. Créer la section Hero
+print("8. Création de la section Hero...")
+hero, created = HeroSection.objects.get_or_create(
+    id=1,
+    defaults={
+        'badge_text': 'New 2024',
+        'title': 'Discover the best smartphones on the market',
+        'title_highlight': 'smartphones',
+        'description': 'iPhone 15, Samsung Galaxy S24, and much more. Free delivery and 12-month warranty.',
+        'button1_text': 'Explore products',
+        'button1_link': '/produit',
+        'button2_text': 'View promos',
+        'button2_link': '/produit?promo=true',
+        'is_active': True
+    }
+)
+if created:
+    print(f"   ✓ Section Hero créée: {hero.title}")
+else:
+    print(f"   - Section Hero existe déjà")
+
+# 9. Créer les fonctionnalités (features)
+print("9. Création des fonctionnalités...")
+features_data = [
+    {'icon': 'truck', 'title': 'Free Delivery', 'description': 'From 50,000 FCFA', 'order': 1},
+    {'icon': 'shield', 'title': '12-Month Warranty', 'description': 'On all products', 'order': 2},
+    {'icon': 'headphones', 'title': '24/7 Support', 'description': 'Dedicated assistance', 'order': 3},
+    {'icon': 'credit-card', 'title': 'Secure Payment', 'description': 'Mobile Money & CB', 'order': 4},
+]
+
+for feat_data in features_data:
+    feature, created = FeatureItem.objects.get_or_create(
+        title=feat_data['title'],
+        defaults={
+            'icon': feat_data['icon'],
+            'description': feat_data['description'],
+            'order': feat_data['order'],
+            'is_active': True
+        }
+    )
+    if created:
+        print(f"   ✓ Fonctionnalité créée: {feature.title}")
+    else:
+        print(f"   - Fonctionnalité existe déjà: {feature.title}")
+
+# 10. Créer les cartes solutions
+print("10. Création des cartes solutions...")
+solutions_data = [
+    {'title': 'Premium Smartphones', 'description': 'The latest iPhone & Samsung models', 'icon': 'smartphone', 'link': '/produit?category=1', 'bg_gradient': 'from-gray-800 to-gray-900', 'order': 1},
+    {'title': 'Tech Accessories', 'description': 'Cases, chargers, headphones...', 'icon': 'headphones', 'link': '/produit?category=3', 'bg_gradient': 'from-gray-700 to-gray-800', 'order': 2},
+    {'title': 'Computers', 'description': 'Powerful laptops and PCs', 'icon': 'monitor', 'link': '/produit?category=2', 'bg_gradient': 'from-gray-600 to-gray-700', 'order': 3},
+    {'title': 'Promotions', 'description': "Up to -50% on a selection", 'icon': 'flame', 'link': '/produit?promo=true', 'bg_gradient': 'from-red-500 to-red-600', 'order': 4},
+]
+
+for sol_data in solutions_data:
+    solution, created = SolutionCard.objects.get_or_create(
+        title=sol_data['title'],
+        defaults={
+            'description': sol_data['description'],
+            'icon': sol_data['icon'],
+            'link': sol_data['link'],
+            'bg_gradient': sol_data['bg_gradient'],
+            'order': sol_data['order'],
+            'is_active': True
+        }
+    )
+    if created:
+        print(f"   ✓ Carte solution créée: {solution.title}")
+    else:
+        print(f"   - Carte solution existe déjà: {solution.title}")
 
 print("\n=== Données de test créées avec succès! ===")
 print("\nComptes utilisateurs:")
