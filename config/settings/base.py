@@ -306,7 +306,7 @@ GOOGLE_OAUTH_CALLBACK_URL = env('GOOGLE_OAUTH_CALLBACK_URL', default='https://fr
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
 
-CORS_URLS_REGEX = r"^/api/.*$"
+CORS_URLS_REGEX = r"^/(api|produits)/.*$"
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "backend API",

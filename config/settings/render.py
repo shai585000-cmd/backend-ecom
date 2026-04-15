@@ -113,14 +113,24 @@ EMAIL_BACKEND = env(
 # ------------------------------------------------------------------------------
 CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=[
     "http://localhost:5173",
+    "http://localhost:5174",
     "http://127.0.0.1:5173",
     "https://frontend-ecom-weld.vercel.app",
+    "https://frontend-ecom-amau70amn-shaivons-projects.vercel.app",
 ])
+
+# Autorise tous les sous-domaines Vercel (previews incluses)
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",
+]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
+    "http://localhost:5174",
     "http://127.0.0.1:5173",
     "https://frontend-ecom-weld.vercel.app",
+    "https://frontend-ecom-amau70amn-shaivons-projects.vercel.app",
+    "https://*.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
