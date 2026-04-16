@@ -15,4 +15,5 @@ urlpatterns = [
     path('products/promotion/', views.PromotionProductsView.as_view(), name='promotion-products'),  # /api/products/promotion/
     path('products/nosproduits/', views.NosProduitsView.as_view(), name='nos-produits'),  # /api/products/nos-produits/
     path('products/dashboard/<str:nom_cli>/', views.DashboardProduits.as_view(), name='dashboard-produits'),  # /api/products/dashboard/
+    path('products/top-selling/', views.TopSellingProductsView.as_view(), name='top-selling'),  # /api/products/top-selling/
 ]

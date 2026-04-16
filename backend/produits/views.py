@@ -1,6 +1,9 @@
 # Imports Django
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
+from django.db.models import Sum
+from django.utils import timezone
+from datetime import timedelta
 
 # Imports Django REST Framework
 from rest_framework import generics, status
@@ -12,6 +15,7 @@ from rest_framework.permissions import AllowAny, IsAdminUser
 from .models import Product
 from .serializers import ProductSerializer
 from .recommendation_utils import get_recommended_products
+from backend.orders.models import OrderItem
 
 # Obtenir le modèle User personnalisé
 User = get_user_model()
@@ -156,3 +160,61 @@ class RecommendedProductsView(APIView):
                 {'error': f'Erreur lors du calcul des recommandations: {str(e)}'}, 
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+
+class TopSellingProductsView(APIView):
+    """
+    Retourne les produits les plus vendus sur une période donnée.
+    
+    Paramètres query:
+    - days: Nombre de jours à considérer (défaut: 30)
+    - limit: Nombre de produits à retourner (défaut: 10)
+    - status: Filtrer par statut de commande (défaut: delivered)
+    """
+    permission_classes = [AllowAny]
+    
+    def get(self, request):
+        # Récupérer les paramètres
+        days = int(request.query_params.get('days', 30))
+        limit = int(request.query_params.get('limit', 10))
+        order_status = request.query_params.get('status', 'delivered')
+        
+        # Calculer la date de début
+        start_date = timezone.now() - timedelta(days=days)
+        
+        # Requête pour obtenir les produits les plus vendus
+        top_selling = OrderItem.objects.filter(
+            order__created_at__gte=start_date,
+            order__status=order_status,
+            product__isnull=False
+        ).values('product_id').annotate(
+            total_sold=Sum('quantity')
+        ).order_by('-total_sold')[:limit]
+        
+        # Récupérer les IDs des produits
+        product_ids = [item['product_id'] for item in top_selling]
+        
+        # Créer un dictionnaire pour les quantités vendues
+        sales_dict = {item['product_id']: item['total_sold'] for item in top_selling}
+        
+        # Récupérer les produits complets
+        products = Product.objects.filter(id__in=product_ids)
+        
+        # Sérialiser les produits
+        serializer = ProductSerializer(products, many=True)
+        
+        # Ajouter les statistiques de vente à chaque produit
+        result = []
+        for product_data in serializer.data:
+            product_data['total_sold'] = sales_dict.get(product_data['id'], 0)
+            result.append(product_data)
+        
+        # Trier par total_sold (car la requête products ne préserve pas l'ordre)
+        result.sort(key=lambda x: x['total_sold'], reverse=True)
+        
+        return Response({
+            'period_days': days,
+            'order_status': order_status,
+            'count': len(result),
+            'products': result
+        })
