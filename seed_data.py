@@ -130,8 +130,75 @@ for prod_data in products_data:
     except Exception as e:
         print(f"   ✗ Erreur pour {product_name}: {e}")
 
-# 6. Créer des bannières
-print("6. Création des bannières...")
+# 6. Créer les produits accessoires (Tech Accessories)
+print("6. Création des produits accessoires...")
+
+accessories_cat = Category.objects.get(name='Accessoires')
+
+accessories_data = [
+    # Étuis de protection
+    {'name': 'Étui iPhone 15 Pro Max - Silicone Noir', 'description': 'Étui en silicone Apple avec boutons tactiles, protection MagSafe', 'price': 59, 'stock': 200, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYD93?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
+    {'name': 'Étui iPhone 15 - Clear Transparent', 'description': 'Étui transparent ultra-fin, protection anti-rayures', 'price': 39, 'stock': 180, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYDX3ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
+    {'name': 'Étui Samsung Galaxy S24 Ultra - Noir', 'description': 'Étui officiel Samsung avec support intégré, protection renforcée', 'price': 49, 'stock': 150, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2401/gallery/fr-galaxy-s24-sm-s9280zdaefb-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Étui Samsung Galaxy S24 - Bleu Marine', 'description': 'Étui Slim Fit, protection légère et élégante', 'price': 35, 'stock': 160, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2401/gallery/fr-galaxy-s24-sm-s9210zdaefb-thumb-539573627?$240_240_PNG$'},
+    # Chargeurs
+    {'name': 'Chargeur Rapide Apple 20W USB-C', 'description': 'Chargeur rapide officiel Apple, compatible iPhone et iPad', 'price': 29, 'stock': 250, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHXH3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660803972366'},
+    {'name': 'Chargeur Samsung 45W Super Fast Charging', 'description': 'Chargeur rapide 45W avec USB-C, compatible Galaxy S series', 'price': 39, 'stock': 200, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2112/gallery/fr-galaxy-s21-5g-ep-ta845-458648823?$240_240_PNG$'},
+    {'name': 'Chargeur Anker 20W PIQ 3.0 USB-C', 'description': 'Chargeur compact avec technologie PowerIQ, compatible tous appareils', 'price': 25, 'stock': 300, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61ZL+LqCn5L._AC_SL1500_.jpg'},
+    {'name': 'Chargeur Rapide 65W GaN USB-C', 'description': 'Chargeur compact GaN, compatible laptops et smartphones', 'price': 49, 'stock': 150, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/71Q7Ez8k5GL._AC_SL1500_.jpg'},
+    # Câbles
+    {'name': 'Câble Lightning vers USB-C Apple 1m', 'description': 'Câble officiel Apple pour charge et synchronisation', 'price': 25, 'stock': 280, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKQH3ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
+    {'name': 'Câble USB-C vers USB-C Samsung 1.5m', 'description': 'Câble Samsung pour charge rapide et transfert de données', 'price': 19, 'stock': 320, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-a52-5g-ep-cg950bbuewc-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Câble USB-C vers Lightning Anker PowerLine II 2m', 'description': 'Câble renforcé MFi, garantie 18 mois', 'price': 22, 'stock': 250, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61nXJr0vO0L._AC_SL1500_.jpg'},
+    # Écouteurs
+    {'name': 'AirPods Pro 2ème génération avec MagSafe', 'description': 'Écouteurs Bluetooth avec réduction de bruit active, étui MagSafe', 'price': 279, 'stock': 100, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660803972366'},
+    {'name': 'AirPods 3ème génération', 'description': 'Écouteurs Bluetooth avec son spatial, étui MagSafe', 'price': 189, 'stock': 120, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MY7G2ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
+    {'name': 'Samsung Galaxy Buds2 Pro', 'description': 'Écouteurs Bluetooth avec réduction de bruit active, son 360°', 'price': 229, 'stock': 110, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2208/gallery/fr-galaxy-buds2-pro-sm-r510nzaebc-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Samsung Galaxy Buds2', 'description': 'Écouteurs Bluetooth légers avec réduction de bruit active', 'price': 149, 'stock': 130, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-buds2-sm-r177nzabec-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Écouteurs Anker Soundcore Liberty 4 NC', 'description': 'Écouteurs Bluetooth avec réduction de bruit adaptative, 50h autonomie', 'price': 99, 'stock': 200, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61Q7Ez8k5GL._AC_SL1500_.jpg'},
+    {'name': 'Écouteurs JBL Tune 225TWS', 'description': 'Écouteurs Bluetooth JBL Pure Bass, 40h autonomie', 'price': 89, 'stock': 180, 'brand': 'JBL', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61nXJr0vO0L._AC_SL1500_.jpg'},
+    # Batteries externes
+    {'name': 'Batterie externe Anker PowerCore 10000', 'description': 'Batterie portable 10000mAh compacte, charge rapide PowerIQ', 'price': 39, 'stock': 150, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61ZL+LqCn5L._AC_SL1500_.jpg'},
+    {'name': 'Batterie externe Samsung 10000mAh', 'description': 'Batterie portable Samsung avec charge rapide 25W', 'price': 45, 'stock': 140, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-a52-5g-ep-p5300bbuewc-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Batterie externe Anker PowerCore 20000', 'description': 'Batterie portable 20000mAh, double USB, charge rapide', 'price': 59, 'stock': 120, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/71Q7Ez8k5GL._AC_SL1500_.jpg'},
+    # Adaptateurs
+    {'name': 'Adaptateur USB-C vers HDMI Apple', 'description': 'Adaptateur officiel Apple pour connecter écrans externes', 'price': 69, 'stock': 80, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHL82?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660803972366'},
+    {'name': 'Adaptateur Samsung USB-C Multiport', 'description': 'Adaptateur Samsung avec HDMI, USB 3.0 et USB-C', 'price': 55, 'stock': 90, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-a52-5g-ep-p2500bbuewc-thumb-539573627?$240_240_PNG$'},
+    # Verres protecteurs
+    {'name': 'Verre trempé iPhone 15 Pro Max - Pack de 3', 'description': 'Verres protecteurs ultra-fins avec protection antibactérienne', 'price': 29, 'stock': 300, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYDX3ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
+    {'name': 'Verre trempé Samsung Galaxy S24 Ultra - Pack de 2', 'description': 'Verres protecteurs Samsung avec protection écran complète', 'price': 24, 'stock': 280, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2401/gallery/fr-galaxy-s24-sm-s9280zdaefb-thumb-539573627?$240_240_PNG$'},
+]
+
+for prod_data in accessories_data:
+    product_name = prod_data['name']
+    image_url = prod_data.pop('image_url', None)
+    brand_name = prod_data.pop('brand')
+    
+    try:
+        brand, _ = Brand.objects.get_or_create(name=brand_name)
+        product, created = Product.objects.get_or_create(
+            name=product_name,
+            defaults={
+                'brand': brand,
+                'categorie': accessories_cat,
+                'user': admin_user,
+                **prod_data
+            }
+        )
+        
+        if image_url:
+            product.image = image_url
+            product.save()
+        
+        if created:
+            print(f"   ✓ Accessoire créé: {product.name} - {product.price}€")
+        else:
+            print(f"   - Accessoire existe déjà: {product.name}")
+    except Exception as e:
+        print(f"   ✗ Erreur pour {product_name}: {e}")
+
+# 7. Créer des bannières
+print("7. Création des bannières...")
 banners_data = [
     {'title': 'iPhone 15 Pro Max'},
     {'title': 'Samsung Galaxy S24'},
@@ -142,8 +209,8 @@ for banner_data in banners_data:
     if created:
         print(f"   ✓ Bannière créée: {banner.title}")
 
-# 7. Créer les annonces défilantes
-print("7. Création des annonces défilantes...")
+# 8. Créer les annonces défilantes
+print("8. Création des annonces défilantes...")
 announcements_data = [
     {'text': 'Livraison GRATUITE pour toute commande supérieure à 50 000 FCFA', 'emoji': '🔥', 'order': 1},
     {'text': 'Nouveaux iPhone 15 disponibles !', 'emoji': '📱', 'order': 2},
@@ -160,8 +227,8 @@ for ann_data in announcements_data:
     if created:
         print(f"   ✓ Annonce créée: {ann_data['emoji']} {ann_data['text'][:40]}...")
 
-# 8. Créer la section Hero
-print("8. Création de la section Hero...")
+# 9. Créer la section Hero
+print("9. Création de la section Hero...")
 hero, created = HeroSection.objects.get_or_create(
     id=1,
     defaults={
@@ -181,8 +248,8 @@ if created:
 else:
     print(f"   - Section Hero existe déjà")
 
-# 9. Créer les fonctionnalités (features)
-print("9. Création des fonctionnalités...")
+# 10. Créer les fonctionnalités (features)
+print("10. Création des fonctionnalités...")
 features_data = [
     {'icon': 'truck', 'title': 'Free Delivery', 'description': 'From 50,000 FCFA', 'order': 1},
     {'icon': 'shield', 'title': '12-Month Warranty', 'description': 'On all products', 'order': 2},
@@ -205,8 +272,8 @@ for feat_data in features_data:
     else:
         print(f"   - Fonctionnalité existe déjà: {feature.title}")
 
-# 10. Créer les cartes solutions
-print("10. Création des cartes solutions...")
+# 11. Créer les cartes solutions
+print("11. Création des cartes solutions...")
 solutions_data = [
     {'title': 'Premium Smartphones', 'description': 'The latest iPhone & Samsung models', 'icon': 'smartphone', 'link': '/produit?category=1', 'bg_gradient': 'from-gray-800 to-gray-900', 'order': 1},
     {'title': 'Tech Accessories', 'description': 'Cases, chargers, headphones...', 'icon': 'headphones', 'link': '/produit?category=3', 'bg_gradient': 'from-gray-700 to-gray-800', 'order': 2},
