@@ -62,6 +62,7 @@ print("4. Création des catégories...")
 categories_data = [
     {'name': 'Smartphones'},
     {'name': 'Accessoires'},
+    {'name': 'Ordinateurs'},
     {'name': 'Tablettes'},
     {'name': 'Montres connectées'},
 ]
@@ -276,8 +277,8 @@ for feat_data in features_data:
 print("11. Création des cartes solutions...")
 solutions_data = [
     {'title': 'Premium Smartphones', 'description': 'The latest iPhone & Samsung models', 'icon': 'smartphone', 'link': '/produit?category=1', 'bg_gradient': 'from-gray-800 to-gray-900', 'order': 1},
-    {'title': 'Tech Accessories', 'description': 'Cases, chargers, headphones...', 'icon': 'headphones', 'link': '/produit?category=3', 'bg_gradient': 'from-gray-700 to-gray-800', 'order': 2},
-    {'title': 'Computers', 'description': 'Powerful laptops and PCs', 'icon': 'monitor', 'link': '/produit?category=2', 'bg_gradient': 'from-gray-600 to-gray-700', 'order': 3},
+    {'title': 'Tech Accessories', 'description': 'Cases, chargers, headphones...', 'icon': 'headphones', 'link': '/produit?category=2', 'bg_gradient': 'from-gray-700 to-gray-800', 'order': 2},
+    {'title': 'Computers', 'description': 'Powerful laptops and PCs', 'icon': 'monitor', 'link': '/produit?category=3', 'bg_gradient': 'from-gray-600 to-gray-700', 'order': 3},
     {'title': 'Promotions', 'description': "Up to -50% on a selection", 'icon': 'flame', 'link': '/produit?promo=true', 'bg_gradient': 'from-red-500 to-red-600', 'order': 4},
 ]
 
