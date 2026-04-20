@@ -23,7 +23,7 @@ class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Product
-        fields = ['id', 'image', 'user', 'categorie', 'categorie_id', 'promotion', 'promotion_price', 'name', 'description', 'price', 'is_featured', 'created_at', 'updated_at']
+        fields = ['id', 'image', 'images', 'user', 'categorie', 'categorie_id', 'promotion', 'promotion_price', 'name', 'description', 'price', 'is_featured', 'created_at', 'updated_at']
     
     def get_image(self, obj):
         """Retourne l'URL d'image correcte"""
