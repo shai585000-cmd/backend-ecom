@@ -96,7 +96,7 @@ Faker==33.1.0
 fido2==1.2.0
 filelock==3.16.1
 h11==0.14.0
-identify==2.6.4
+identify==2.6.15
 idna==3.10
 inflection==0.5.1
 iniconfig==2.0.0
