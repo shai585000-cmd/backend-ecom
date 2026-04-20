@@ -12,6 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
+    images = serializers.SerializerMethodField()
     categorie = CategorySerializer(read_only=True)
     categorie_id = serializers.PrimaryKeyRelatedField(
         queryset=Category.objects.all(), 
