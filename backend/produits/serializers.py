@@ -22,7 +22,7 @@ class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Product
-        fields = ['id', 'image', 'images', 'user', 'categorie', 'categorie_id', 'promotion', 'promotion_price', 'name', 'description', 'price', 'is_featured', 'created_at', 'updated_at']
+        fields = ['id', 'image', 'user', 'categorie', 'categorie_id', 'promotion', 'promotion_price', 'name', 'description', 'price', 'is_featured', 'created_at', 'updated_at']
     
     def get_image(self, obj):
         """Retourne l'URL d'image correcte"""
@@ -60,12 +60,15 @@ class ProductSerializer(serializers.ModelSerializer):
         """Retourne toutes les images sous forme de tableau"""
         images = []
         image_fields = ['image', 'image_2', 'image_3', 'image_4']
-        
+
         for idx, field in enumerate(image_fields):
-            img_field = getattr(obj, field, None)
-            if img_field:
+            try:
+                img_field = getattr(obj, field, None)
+                if not img_field:
+                    continue
+
                 img_str = str(img_field)
-                
+
                 # Même logique que get_image pour l'URL
                 if 'https%3A' in img_str or 'http%3A' in img_str:
                     url = unquote(img_str)
@@ -85,5 +88,8 @@ class ProductSerializer(serializers.ModelSerializer):
                             images.append({'id': idx, 'image': url})
                         else:
                             images.append({'id': idx, 'image': f'/media/{img_str}'})
-        
+            except Exception:
+                # Skip this image if there's any error processing it
+                continue
+
         return images if images else None
