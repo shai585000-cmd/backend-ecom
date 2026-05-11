@@ -5,7 +5,7 @@ import django
 # Ajouter le dossier backend au path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-os.environ['DATABASE_URL'] = "postgresql://postgres:Offoange%4019@db.cnnilqjdfkbidufnvnyn.supabase.co:5432/postgres?sslmode=require"
+os.environ['DATABASE_URL'] = "postgresql://postgres.uluantlvcdxnphaartlz:Offoange%4019@aws-1-eu-west-1.pooler.supabase.com:5432/postgres"
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.base')
 django.setup()
 
@@ -48,9 +48,9 @@ if not User.objects.filter(nom_cli='testuser').exists():
 else:
     print("   - Utilisateur test existe déjà")
 
-# 3. Créer les marques de téléphones
+# 3. Créer les marques de téléphones et ordinateurs
 print("3. Création des marques...")
-brands_names = ['Apple', 'Samsung', 'Xiaomi', 'Huawei', 'Google', 'OnePlus']
+brands_names = ['Apple', 'Samsung', 'Xiaomi', 'Huawei', 'Google', 'OnePlus', 'HP', 'Dell', 'Lenovo', 'Asus', 'MSI', 'Acer']
 
 for brand_name in brands_names:
     brand, created = Brand.objects.get_or_create(name=brand_name)
@@ -83,23 +83,23 @@ smartphones_cat = Category.objects.get(name='Smartphones')
 
 products_data = [
     # Apple - Images GSMArena (courtes et fiables)
-    {'name': 'iPhone 15 Pro Max', 'description': 'Le dernier iPhone avec puce A17 Pro, écran Super Retina XDR 6.7"', 'price': 1479, 'stock': 50, 'brand': 'Apple', 'ram': 8, 'storage': 256, 'screen_size': 6.7, 'battery_capacity': 4422, 'main_camera': '48 MP + 12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg'},
-    {'name': 'iPhone 15', 'description': 'iPhone 15 avec Dynamic Island, puce A16 Bionic', 'price': 969, 'stock': 75, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3349, 'main_camera': '48 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg'},
-    {'name': 'iPhone 14', 'description': 'iPhone 14 avec écran Super Retina XDR, puce A15 Bionic', 'price': 769, 'stock': 100, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3279, 'main_camera': '12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg'},
+    {'name': 'iPhone 15 Pro Max', 'description': 'Le dernier iPhone avec puce A17 Pro, écran Super Retina XDR 6.7"', 'price': 1479, 'stock': 50, 'brand': 'Apple', 'ram': 8, 'storage': 256, 'screen_size': 6.7, 'battery_capacity': 4422, 'main_camera': '48 MP + 12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1771243522/media/products/0195949018930_h_f_l_2_r5vwtb.jpg'},
+    {'name': 'iPhone 15', 'description': 'iPhone 15 avec Dynamic Island, puce A16 Bionic', 'price': 969, 'stock': 75, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3349, 'main_camera': '48 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776214442/media/products/0195949036781_h_f_l_0_c8pzqm.webp'},
+    {'name': 'iPhone 14', 'description': 'iPhone 14 avec écran Super Retina XDR, puce A15 Bionic', 'price': 769, 'stock': 100, 'brand': 'Apple', 'ram': 6, 'storage': 128, 'screen_size': 6.1, 'battery_capacity': 3279, 'main_camera': '12 MP + 12 MP', 'operating_system': 'ios', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1771243471/media/products/apple-iphone-14-128-go-bleu_b4d01954-eecf-46e6-8838-eacfaa513062_o371sy.webp'},
     # Samsung
-    {'name': 'Samsung Galaxy S24 Ultra', 'description': 'Galaxy S24 Ultra avec Galaxy AI, S Pen intégré', 'price': 1469, 'stock': 40, 'brand': 'Samsung', 'ram': 12, 'storage': 256, 'screen_size': 6.8, 'battery_capacity': 5000, 'main_camera': '200 MP + 12 MP + 50 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra-5g.jpg'},
-    {'name': 'Samsung Galaxy S24', 'description': 'Galaxy S24 avec écran Dynamic AMOLED 2X', 'price': 899, 'stock': 60, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4000, 'main_camera': '50 MP + 12 MP + 10 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24.jpg'},
-    {'name': 'Samsung Galaxy A54', 'description': 'Galaxy A54 5G avec écran Super AMOLED', 'price': 449, 'stock': 120, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.4, 'battery_capacity': 5000, 'main_camera': '50 MP + 12 MP + 5 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54-5g.jpg'},
+    {'name': 'Samsung Galaxy S24 Ultra', 'description': 'Galaxy S24 Ultra avec Galaxy AI, S Pen intégré', 'price': 1469, 'stock': 40, 'brand': 'Samsung', 'ram': 12, 'storage': 256, 'screen_size': 6.8, 'battery_capacity': 5000, 'main_camera': '200 MP + 12 MP + 50 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776388198/media/products/samsung-galaxy-s24-ultra-1_pyv6gs.jpg'},
+    {'name': 'Samsung Galaxy S24', 'description': 'Galaxy S24 avec écran Dynamic AMOLED 2X', 'price': 899, 'stock': 60, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4000, 'main_camera': '50 MP + 12 MP + 10 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776388223/media/products/samsung-s24-5g-8gb-ram-256gb-_dkpypq.jpg'},
+    {'name': 'Samsung Galaxy A54', 'description': 'Galaxy A54 5G avec écran Super AMOLED', 'price': 449, 'stock': 120, 'brand': 'Samsung', 'ram': 8, 'storage': 128, 'screen_size': 6.4, 'battery_capacity': 5000, 'main_camera': '50 MP + 12 MP + 5 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776388313/media/products/samsung-galaxy-a54-8gb-ram-128gb-5g_a5ct8d.jpg'},
     # Xiaomi
-    {'name': 'Xiaomi 14 Ultra', 'description': 'Xiaomi 14 Ultra avec optique Leica, Snapdragon 8 Gen 3', 'price': 1299, 'stock': 35, 'brand': 'Xiaomi', 'ram': 16, 'storage': 512, 'screen_size': 6.73, 'battery_capacity': 5300, 'main_camera': '50 MP + 50 MP + 50 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg'},
-    {'name': 'Xiaomi Redmi Note 13 Pro', 'description': 'Redmi Note 13 Pro avec écran AMOLED, caméra 200 MP', 'price': 349, 'stock': 150, 'brand': 'Xiaomi', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 5100, 'main_camera': '200 MP + 8 MP + 2 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro-5g.jpg'},
+    {'name': 'Xiaomi 14 Ultra', 'description': 'Xiaomi 14 Ultra avec optique Leica, Snapdragon 8 Gen 3', 'price': 1299, 'stock': 35, 'brand': 'Xiaomi', 'ram': 16, 'storage': 512, 'screen_size': 6.73, 'battery_capacity': 5300, 'main_camera': '50 MP + 50 MP + 50 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776388282/media/products/xiaomi-14-ultra-16gb-ram-512gb-2_mbzc4t.jpg'},
+    {'name': 'Xiaomi Redmi Note 13 Pro', 'description': 'Redmi Note 13 Pro avec écran AMOLED, caméra 200 MP', 'price': 349, 'stock': 150, 'brand': 'Xiaomi', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 5100, 'main_camera': '200 MP + 8 MP + 2 MP', 'operating_system': 'android', 'network': '5g', 'image_url': ''},
     # Google
-    {'name': 'Google Pixel 8 Pro', 'description': 'Pixel 8 Pro avec Tensor G3, 7 ans de mises à jour', 'price': 1099, 'stock': 45, 'brand': 'Google', 'ram': 12, 'storage': 128, 'screen_size': 6.7, 'battery_capacity': 5050, 'main_camera': '50 MP + 48 MP + 48 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg'},
-    {'name': 'Google Pixel 8', 'description': 'Pixel 8 avec puce Tensor G3, écran Actua', 'price': 799, 'stock': 55, 'brand': 'Google', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4575, 'main_camera': '50 MP + 12 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8.jpg'},
+    {'name': 'Google Pixel 8 Pro', 'description': 'Pixel 8 Pro avec Tensor G3, 7 ans de mises à jour', 'price': 1099, 'stock': 45, 'brand': 'Google', 'ram': 12, 'storage': 128, 'screen_size': 6.7, 'battery_capacity': 5050, 'main_camera': '50 MP + 48 MP + 48 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776387475/media/products/14102_i0iivt.jpg'},
+    {'name': 'Google Pixel 8', 'description': 'Pixel 8 avec puce Tensor G3, écran Actua', 'price': 799, 'stock': 55, 'brand': 'Google', 'ram': 8, 'storage': 128, 'screen_size': 6.2, 'battery_capacity': 4575, 'main_camera': '50 MP + 12 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776387520/media/products/google-pixel-8-128gb-3_fovidf.jpg'},
     # OnePlus
-    {'name': 'OnePlus 12', 'description': 'OnePlus 12 avec Snapdragon 8 Gen 3, charge 100W', 'price': 919, 'stock': 40, 'brand': 'OnePlus', 'ram': 12, 'storage': 256, 'screen_size': 6.82, 'battery_capacity': 5400, 'main_camera': '50 MP + 48 MP + 64 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg'},
+    {'name': 'OnePlus 12', 'description': 'OnePlus 12 avec Snapdragon 8 Gen 3, charge 100W', 'price': 919, 'stock': 40, 'brand': 'OnePlus', 'ram': 12, 'storage': 256, 'screen_size': 6.82, 'battery_capacity': 5400, 'main_camera': '50 MP + 48 MP + 64 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776387652/media/products/oneplus-12-5g-12gb-ram-512gb_uvrgdk.jpg'},
     # Huawei
-    {'name': 'Huawei P60 Pro', 'description': 'Huawei P60 Pro avec optique XMAGE', 'price': 1099, 'stock': 30, 'brand': 'Huawei', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 4815, 'main_camera': '48 MP + 13 MP + 48 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://fdn2.gsmarena.com/vv/bigpic/huawei-p60-pro.jpg'},
+    {'name': 'Huawei P60 Pro', 'description': 'Huawei P60 Pro avec optique XMAGE', 'price': 1099, 'stock': 30, 'brand': 'Huawei', 'ram': 8, 'storage': 256, 'screen_size': 6.67, 'battery_capacity': 4815, 'main_camera': '48 MP + 13 MP + 48 MP', 'operating_system': 'android', 'network': '5g', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776387686/media/products/huawei-p60-pro-12gb-512gb-noir_3_800x_ze8hxw.webp'},
 ]
 
 for prod_data in products_data:
@@ -138,36 +138,36 @@ accessories_cat = Category.objects.get(name='Accessoires')
 
 accessories_data = [
     # Étuis de protection
-    {'name': 'Étui iPhone 15 Pro Max - Silicone Noir', 'description': 'Étui en silicone Apple avec boutons tactiles, protection MagSafe', 'price': 59, 'stock': 200, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYD93?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
-    {'name': 'Étui iPhone 15 - Clear Transparent', 'description': 'Étui transparent ultra-fin, protection anti-rayures', 'price': 39, 'stock': 180, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYDX3ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
-    {'name': 'Étui Samsung Galaxy S24 Ultra - Noir', 'description': 'Étui officiel Samsung avec support intégré, protection renforcée', 'price': 49, 'stock': 150, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2401/gallery/fr-galaxy-s24-sm-s9280zdaefb-thumb-539573627?$240_240_PNG$'},
-    {'name': 'Étui Samsung Galaxy S24 - Bleu Marine', 'description': 'Étui Slim Fit, protection légère et élégante', 'price': 35, 'stock': 160, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2401/gallery/fr-galaxy-s24-sm-s9210zdaefb-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Étui iPhone 15 Pro Max - Silicone Noir', 'description': 'Étui en silicone Apple avec boutons tactiles, protection MagSafe', 'price': 59, 'stock': 200, 'brand': 'Apple', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520522/media/products/1_1_aytxd5.jpg'},
+    {'name': 'Étui iPhone 15 - Clear Transparent', 'description': 'Étui transparent ultra-fin, protection anti-rayures', 'price': 39, 'stock': 180, 'brand': 'Apple', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520468/media/products/MT213_xb0juj.jpg'},
+    {'name': 'Étui Samsung Galaxy S24 Ultra - Noir', 'description': 'Étui officiel Samsung avec support intégré, protection renforcée', 'price': 49, 'stock': 150, 'brand': 'Samsung', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520219/media/products/images_5_jrzxgj.jpg'},
+    {'name': 'Étui Samsung Galaxy S24 - Bleu Marine', 'description': 'Étui Slim Fit, protection légère et élégante', 'price': 35, 'stock': 160, 'brand': 'Samsung', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520420/media/products/Coque-silicone-noir-Samsung-S24_rmpmv3.jpg'},
     # Chargeurs
-    {'name': 'Chargeur Rapide Apple 20W USB-C', 'description': 'Chargeur rapide officiel Apple, compatible iPhone et iPad', 'price': 29, 'stock': 250, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHXH3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660803972366'},
-    {'name': 'Chargeur Samsung 45W Super Fast Charging', 'description': 'Chargeur rapide 45W avec USB-C, compatible Galaxy S series', 'price': 39, 'stock': 200, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2112/gallery/fr-galaxy-s21-5g-ep-ta845-458648823?$240_240_PNG$'},
-    {'name': 'Chargeur Anker 20W PIQ 3.0 USB-C', 'description': 'Chargeur compact avec technologie PowerIQ, compatible tous appareils', 'price': 25, 'stock': 300, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61ZL+LqCn5L._AC_SL1500_.jpg'},
-    {'name': 'Chargeur Rapide 65W GaN USB-C', 'description': 'Chargeur compact GaN, compatible laptops et smartphones', 'price': 49, 'stock': 150, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/71Q7Ez8k5GL._AC_SL1500_.jpg'},
+    {'name': 'Chargeur Rapide Apple 20W USB-C', 'description': 'Chargeur rapide officiel Apple, compatible iPhone et iPad', 'price': 29, 'stock': 250, 'brand': 'Apple', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776519113/media/products/sec-vrak-c20w-dv2-3_zhep5g.jpg'},
+    {'name': 'Chargeur Samsung 45W Super Fast Charging', 'description': 'Chargeur rapide 45W avec USB-C, compatible Galaxy S series', 'price': 39, 'stock': 200, 'brand': 'Samsung', 'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520098/media/products/pack-sam-bk-epta845-r_i38hgy.jpg'},
+    {'name': 'Chargeur Anker 20W PIQ 3.0 USB-C', 'description': 'Chargeur compact avec technologie PowerIQ, compatible tous appareils', 'price': 25, 'stock': 300, 'brand': 'Anker', 'image_url': ''},
+    {'name': 'Chargeur Rapide 65W GaN USB-C', 'description': 'Chargeur compact GaN, compatible laptops et smartphones', 'price': 49, 'stock': 150, 'brand': 'Anker', 'image_url': ''},
     # Câbles
-    {'name': 'Câble Lightning vers USB-C Apple 1m', 'description': 'Câble officiel Apple pour charge et synchronisation', 'price': 25, 'stock': 280, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKQH3ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
-    {'name': 'Câble USB-C vers USB-C Samsung 1.5m', 'description': 'Câble Samsung pour charge rapide et transfert de données', 'price': 19, 'stock': 320, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-a52-5g-ep-cg950bbuewc-thumb-539573627?$240_240_PNG$'},
-    {'name': 'Câble USB-C vers Lightning Anker PowerLine II 2m', 'description': 'Câble renforcé MFi, garantie 18 mois', 'price': 22, 'stock': 250, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61nXJr0vO0L._AC_SL1500_.jpg'},
+    {'name': 'Câble Lightning vers USB-C Apple 1m', 'description': 'Câble officiel Apple pour charge et synchronisation', 'price': 25, 'stock': 280, 'brand': 'Apple', 'image_url': ''},
+    {'name': 'Câble USB-C vers USB-C Samsung 1.5m', 'description': 'Câble Samsung pour charge rapide et transfert de données', 'price': 19, 'stock': 320, 'brand': 'Samsung', 'image_url': ''},
+    {'name': 'Câble USB-C vers Lightning Anker PowerLine II 2m', 'description': 'Câble renforcé MFi, garantie 18 mois', 'price': 22, 'stock': 250, 'brand': 'Anker', 'image_url': ''},
     # Écouteurs
-    {'name': 'AirPods Pro 2ème génération avec MagSafe', 'description': 'Écouteurs Bluetooth avec réduction de bruit active, étui MagSafe', 'price': 279, 'stock': 100, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQD83?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660803972366'},
-    {'name': 'AirPods 3ème génération', 'description': 'Écouteurs Bluetooth avec son spatial, étui MagSafe', 'price': 189, 'stock': 120, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MY7G2ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
-    {'name': 'Samsung Galaxy Buds2 Pro', 'description': 'Écouteurs Bluetooth avec réduction de bruit active, son 360°', 'price': 229, 'stock': 110, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2208/gallery/fr-galaxy-buds2-pro-sm-r510nzaebc-thumb-539573627?$240_240_PNG$'},
-    {'name': 'Samsung Galaxy Buds2', 'description': 'Écouteurs Bluetooth légers avec réduction de bruit active', 'price': 149, 'stock': 130, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-buds2-sm-r177nzabec-thumb-539573627?$240_240_PNG$'},
-    {'name': 'Écouteurs Anker Soundcore Liberty 4 NC', 'description': 'Écouteurs Bluetooth avec réduction de bruit adaptative, 50h autonomie', 'price': 99, 'stock': 200, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61Q7Ez8k5GL._AC_SL1500_.jpg'},
-    {'name': 'Écouteurs JBL Tune 225TWS', 'description': 'Écouteurs Bluetooth JBL Pure Bass, 40h autonomie', 'price': 89, 'stock': 180, 'brand': 'JBL', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61nXJr0vO0L._AC_SL1500_.jpg'},
+    {'name': 'AirPods Pro 2ème génération avec MagSafe', 'description': 'Écouteurs Bluetooth avec réduction de bruit active, étui MagSafe', 'price': 279, 'stock': 100, 'brand': 'Apple', 'image_url': ''},
+    {'name': 'AirPods 3ème génération', 'description': 'Écouteurs Bluetooth avec son spatial, étui MagSafe', 'price': 189, 'stock': 120, 'brand': 'Apple', 'image_url': ''},
+    {'name': 'Samsung Galaxy Buds2 Pro', 'description': 'Écouteurs Bluetooth avec réduction de bruit active, son 360°', 'price': 229, 'stock': 110, 'brand': 'Samsung', 'image_url': ''},
+    {'name': 'Samsung Galaxy Buds2', 'description': 'Écouteurs Bluetooth légers avec réduction de bruit active', 'price': 149, 'stock': 130, 'brand': 'Samsung', 'image_url': ''},
+    {'name': 'Écouteurs Anker Soundcore Liberty 4 NC', 'description': 'Écouteurs Bluetooth avec réduction de bruit adaptative, 50h autonomie', 'price': 99, 'stock': 200, 'brand': 'Anker', 'image_url': ''},
+    {'name': 'Écouteurs JBL Tune 225TWS', 'description': 'Écouteurs Bluetooth JBL Pure Bass, 40h autonomie', 'price': 89, 'stock': 180, 'brand': 'JBL', 'image_url': ''},
     # Batteries externes
-    {'name': 'Batterie externe Anker PowerCore 10000', 'description': 'Batterie portable 10000mAh compacte, charge rapide PowerIQ', 'price': 39, 'stock': 150, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/61ZL+LqCn5L._AC_SL1500_.jpg'},
-    {'name': 'Batterie externe Samsung 10000mAh', 'description': 'Batterie portable Samsung avec charge rapide 25W', 'price': 45, 'stock': 140, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-a52-5g-ep-p5300bbuewc-thumb-539573627?$240_240_PNG$'},
-    {'name': 'Batterie externe Anker PowerCore 20000', 'description': 'Batterie portable 20000mAh, double USB, charge rapide', 'price': 59, 'stock': 120, 'brand': 'Anker', 'image_url': 'https://images-na.ssl-images-amazon.com/images/I/71Q7Ez8k5GL._AC_SL1500_.jpg'},
+    {'name': 'Batterie externe Anker PowerCore 10000', 'description': 'Batterie portable 10000mAh compacte, charge rapide PowerIQ', 'price': 39, 'stock': 150, 'brand': 'Anker', 'image_url': ''},
+    {'name': 'Batterie externe Samsung 10000mAh', 'description': 'Batterie portable Samsung avec charge rapide 25W', 'price': 45, 'stock': 140, 'brand': 'Samsung', 'image_url': ''},
+    {'name': 'Batterie externe Anker PowerCore 20000', 'description': 'Batterie portable 20000mAh, double USB, charge rapide', 'price': 59, 'stock': 120, 'brand': 'Anker', 'image_url': ''},
     # Adaptateurs
-    {'name': 'Adaptateur USB-C vers HDMI Apple', 'description': 'Adaptateur officiel Apple pour connecter écrans externes', 'price': 69, 'stock': 80, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHL82?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660803972366'},
-    {'name': 'Adaptateur Samsung USB-C Multiport', 'description': 'Adaptateur Samsung avec HDMI, USB 3.0 et USB-C', 'price': 55, 'stock': 90, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2108/gallery/fr-galaxy-a52-5g-ep-p2500bbuewc-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Adaptateur USB-C vers HDMI Apple', 'description': 'Adaptateur officiel Apple pour connecter écrans externes', 'price': 69, 'stock': 80, 'brand': 'Apple', 'image_url': ''},
+    {'name': 'Adaptateur Samsung USB-C Multiport', 'description': 'Adaptateur Samsung avec HDMI, USB 3.0 et USB-C', 'price': 55, 'stock': 90, 'brand': 'Samsung', 'image_url': ''},
     # Verres protecteurs
-    {'name': 'Verre trempé iPhone 15 Pro Max - Pack de 3', 'description': 'Verres protecteurs ultra-fins avec protection antibactérienne', 'price': 29, 'stock': 300, 'brand': 'Apple', 'image_url': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MYDX3ref?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014870200'},
-    {'name': 'Verre trempé Samsung Galaxy S24 Ultra - Pack de 2', 'description': 'Verres protecteurs Samsung avec protection écran complète', 'price': 24, 'stock': 280, 'brand': 'Samsung', 'image_url': 'https://images.samsung.com/is/image/samsung/p6pim/fr/2401/gallery/fr-galaxy-s24-sm-s9280zdaefb-thumb-539573627?$240_240_PNG$'},
+    {'name': 'Verre trempé iPhone 15 Pro Max - Pack de 3', 'description': 'Verres protecteurs ultra-fins avec protection antibactérienne', 'price': 29, 'stock': 300, 'brand': 'Apple', 'image_url': ''},
+    {'name': 'Verre trempé Samsung Galaxy S24 Ultra - Pack de 2', 'description': 'Verres protecteurs Samsung avec protection écran complète', 'price': 24, 'stock': 280, 'brand': 'Samsung', 'image_url': ''},
 ]
 
 for prod_data in accessories_data:
@@ -198,8 +198,182 @@ for prod_data in accessories_data:
     except Exception as e:
         print(f"   ✗ Erreur pour {product_name}: {e}")
 
-# 7. Créer des bannières
-print("7. Création des bannières...")
+# 7. Créer les produits ordinateurs
+print("7. Création des produits ordinateurs...")
+
+computers_cat = Category.objects.get(name='Ordinateurs')
+
+computers_data = [
+    # MacBooks
+    {
+        'name': 'MacBook Pro 14" M3 Pro',
+        'description': 'Puce M3 Pro, 18 Go RAM, 512 Go SSD, écran Liquid Retina XDR',
+        'price': 2499,
+        'stock': 25,
+        'brand': 'Apple',
+        'ram': 18,
+        'storage': 512,
+        'screen_size': 14.2,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520634/media/products/macbook-pro-m3-14-space-gray_1_r1kx5c.jpg',
+    },
+    {
+        'name': 'MacBook Air 15" M3',
+        'description': 'Puce M3, 8 Go RAM, 256 Go SSD, écran Liquid Retina',
+        'price': 1499,
+        'stock': 40,
+        'brand': 'Apple',
+        'ram': 8,
+        'storage': 256,
+        'screen_size': 15.3,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520682/media/products/macbook-air-m3-15-midnight_1_1_1_c1h9jv.jpg',
+    },
+    {
+        'name': 'MacBook Air 13" M2',
+        'description': 'Puce M2, 8 Go RAM, 256 Go SSD, design ultra-fin',
+        'price': 1199,
+        'stock': 50,
+        'brand': 'Apple',
+        'ram': 8,
+        'storage': 256,
+        'screen_size': 13.6,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520725/media/products/macbook-air-m2-13-midnight.jpg',
+    },
+    # HP
+    {
+        'name': 'HP Pavilion 15',
+        'description': 'Intel Core i5, 8 Go RAM, 512 Go SSD, Windows 11',
+        'price': 699,
+        'stock': 60,
+        'brand': 'HP',
+        'ram': 8,
+        'storage': 512,
+        'screen_size': 15.6,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520778/media/products/hp-pavilion-15.jpg',
+    },
+    {
+        'name': 'HP Spectre x360 14',
+        'description': 'Intel Core i7, 16 Go RAM, 1 To SSD, écran OLED tactile',
+        'price': 1599,
+        'stock': 20,
+        'brand': 'HP',
+        'ram': 16,
+        'storage': 1000,
+        'screen_size': 14.0,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520812/media/products/hp-spectre-x360-14.jpg',
+    },
+    # Dell
+    {
+        'name': 'Dell XPS 15',
+        'description': 'Intel Core i7, 16 Go RAM, 512 Go SSD, écran 3.5K OLED',
+        'price': 1799,
+        'stock': 30,
+        'brand': 'Dell',
+        'ram': 16,
+        'storage': 512,
+        'screen_size': 15.6,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520856/media/products/dell-xps-15.jpg',
+    },
+    {
+        'name': 'Dell Inspiron 14',
+        'description': 'Intel Core i5, 8 Go RAM, 256 Go SSD, Windows 11',
+        'price': 599,
+        'stock': 70,
+        'brand': 'Dell',
+        'ram': 8,
+        'storage': 256,
+        'screen_size': 14.0,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520890/media/products/dell-inspiron-14.jpg',
+    },
+    # Lenovo
+    {
+        'name': 'Lenovo ThinkPad X1 Carbon',
+        'description': 'Intel Core i7, 16 Go RAM, 512 Go SSD, écran 14" 2.8K',
+        'price': 1899,
+        'stock': 25,
+        'brand': 'Lenovo',
+        'ram': 16,
+        'storage': 512,
+        'screen_size': 14.0,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520934/media/products/lenovo-thinkpad-x1-carbon.jpg',
+    },
+    {
+        'name': 'Lenovo IdeaPad Slim 5',
+        'description': 'AMD Ryzen 7, 16 Go RAM, 512 Go SSD, écran 16" 2.5K',
+        'price': 899,
+        'stock': 45,
+        'brand': 'Lenovo',
+        'ram': 16,
+        'storage': 512,
+        'screen_size': 16.0,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776520978/media/products/lenovo-ideapad-slim-5.jpg',
+    },
+    # Gaming
+    {
+        'name': 'Asus ROG Strix G16',
+        'description': 'Intel Core i9, RTX 4070, 16 Go RAM, 1 To SSD, 165Hz',
+        'price': 1999,
+        'stock': 15,
+        'brand': 'Asus',
+        'ram': 16,
+        'storage': 1000,
+        'screen_size': 16.0,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776521022/media/products/asus-rog-strix-g16.jpg',
+    },
+    {
+        'name': 'MSI Katana 15',
+        'description': 'Intel Core i7, RTX 4060, 16 Go RAM, 512 Go SSD, 144Hz',
+        'price': 1299,
+        'stock': 20,
+        'brand': 'MSI',
+        'ram': 16,
+        'storage': 512,
+        'screen_size': 15.6,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776521066/media/products/msi-katana-15.jpg',
+    },
+    {
+        'name': 'Acer Nitro 5',
+        'description': 'AMD Ryzen 5, RTX 3050, 8 Go RAM, 512 Go SSD, 144Hz',
+        'price': 799,
+        'stock': 35,
+        'brand': 'Acer',
+        'ram': 8,
+        'storage': 512,
+        'screen_size': 15.6,
+        'image_url': 'https://res.cloudinary.com/dirmdexmb/image/upload/v1776521110/media/products/acer-nitro-5.jpg',
+    },
+]
+
+for prod_data in computers_data:
+    product_name = prod_data['name']
+    image_url = prod_data.pop('image_url', None)
+    brand_name = prod_data.pop('brand')
+
+    try:
+        brand = Brand.objects.get(name=brand_name)
+        product, created = Product.objects.get_or_create(
+            name=product_name,
+            defaults={
+                'brand': brand,
+                'categorie': computers_cat,
+                'user': admin_user,
+                'condition': 'new',
+                **prod_data
+            }
+        )
+
+        if image_url:
+            product.image = image_url
+            product.save()
+
+        if created:
+            print(f"   ✓ Ordinateur créé: {product.name} - {product.price}€")
+        else:
+            print(f"   ✓ Image mise à jour: {product.name}")
+    except Exception as e:
+        print(f"   ✗ Erreur pour {product_name}: {e}")
+
+# 8. Créer des bannières
+print("8. Création des bannières...")
 banners_data = [
     {'title': 'iPhone 15 Pro Max'},
     {'title': 'Samsung Galaxy S24'},
@@ -210,8 +384,8 @@ for banner_data in banners_data:
     if created:
         print(f"   ✓ Bannière créée: {banner.title}")
 
-# 8. Créer les annonces défilantes
-print("8. Création des annonces défilantes...")
+# 9. Créer les annonces défilantes
+print("9. Création des annonces défilantes...")
 announcements_data = [
     {'text': 'Livraison GRATUITE pour toute commande supérieure à 50 000 FCFA', 'emoji': '🔥', 'order': 1},
     {'text': 'Nouveaux iPhone 15 disponibles !', 'emoji': '📱', 'order': 2},
@@ -228,8 +402,8 @@ for ann_data in announcements_data:
     if created:
         print(f"   ✓ Annonce créée: {ann_data['emoji']} {ann_data['text'][:40]}...")
 
-# 9. Créer la section Hero
-print("9. Création de la section Hero...")
+# 10. Créer la section Hero
+print("10. Création de la section Hero...")
 hero, created = HeroSection.objects.get_or_create(
     id=1,
     defaults={
@@ -249,8 +423,8 @@ if created:
 else:
     print(f"   - Section Hero existe déjà")
 
-# 10. Créer les fonctionnalités (features)
-print("10. Création des fonctionnalités...")
+# 11. Créer les fonctionnalités (features)
+print("11. Création des fonctionnalités...")
 features_data = [
     {'icon': 'truck', 'title': 'Free Delivery', 'description': 'From 50,000 FCFA', 'order': 1},
     {'icon': 'shield', 'title': '12-Month Warranty', 'description': 'On all products', 'order': 2},
@@ -273,8 +447,8 @@ for feat_data in features_data:
     else:
         print(f"   - Fonctionnalité existe déjà: {feature.title}")
 
-# 11. Créer les cartes solutions
-print("11. Création des cartes solutions...")
+# 12. Créer les cartes solutions
+print("12. Création des cartes solutions...")
 solutions_data = [
     {'title': 'Premium Smartphones', 'description': 'The latest iPhone & Samsung models', 'icon': 'smartphone', 'link': '/produit?category=1', 'bg_gradient': 'from-gray-800 to-gray-900', 'order': 1},
     {'title': 'Tech Accessories', 'description': 'Cases, chargers, headphones...', 'icon': 'headphones', 'link': '/produit?category=2', 'bg_gradient': 'from-gray-700 to-gray-800', 'order': 2},
